@@ -243,7 +243,7 @@ class _LoginPageState extends State<LoginPage> {
                                     // Aquí puedes agregar la navegación a la siguiente pantalla
                                     Navigator.push(
                                       context,
-                                      MaterialPageRoute(builder: (context) => SplashScreen()), // Navega a la HomePage
+                                      MaterialPageRoute(builder: (context) => MyHomePage(title: "Dora Mayer")), // Navega a la HomePage
                                     );
                                     // Acceso concedido
                                     print('Acceso concedido');
