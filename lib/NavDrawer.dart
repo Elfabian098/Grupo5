@@ -80,7 +80,7 @@ class NavDrawer extends StatelessWidget{
             onTap: (){
             Navigator.of(context).pop();
             Navigator.of(context).push(MaterialPageRoute(
-     builder: (BuildContext context) => MyHomePage(title: '"Comunidad Conocimiento I+D+I+Sistemas"')));
+     builder: (BuildContext context) => MyHomePage(title: 'Dora Mayer')));
   },
             ),
           Divider(
