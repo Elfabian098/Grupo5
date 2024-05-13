@@ -64,6 +64,13 @@ flutter:
     # - assets/img.jpeg
     # - assets/logo_unfv.jpg
     # - assets/doramayer.jpg
+    # - assets/historia.jpg
+    # - assets/comunicacion.jpg
+    # - assets/arte_cultura.png
+    # - assets/ingles.jpg
+    # - assets/matematica.jpg
+    # - assets/quimica.jpg
+    # - assets/EPT.jpg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

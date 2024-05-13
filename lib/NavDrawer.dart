@@ -4,6 +4,7 @@ import 'package:guia5/home.dart';
 import 'package:guia5/Perfil.dart';
 import 'package:guia5/Contacto.dart';
 import 'package:guia5/main.dart';
+import 'package:guia5/ListaCursos.dart';
 
 class NavDrawer extends StatelessWidget{
   @override
@@ -13,23 +14,56 @@ class NavDrawer extends StatelessWidget{
         children: [
           DrawerHeader(
             decoration: BoxDecoration(
-              color: Colors.orange,
+              color: Color(0xFFAA382E),
             ),
             child: Center(
-              child: Row(
+              child: Column(
                 children: [
-                  Expanded(
-                    child: Icon(Icons.account_circle, color: Colors.white,size:40,),
-                    flex: 2,
-                  ),
-                  Expanded(flex: 6,
-                  child: Text(
-                    "FIIS-UNFV",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
+                  // Primera línea con imagen y texto
+                  Container(
+                    height: 80, // Altura de la línea
+                    color: Colors.transparent, // Color de la línea
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: CircleAvatar(
+                            backgroundImage: AssetImage('../assets/dora_mayer.jpg'), // Ruta de la imagen
+                            radius: 20, // Tamaño del avatar
+                          ),
+                        ),
+                        Text(
+                          "I. E. DORA MAYER",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
+                  // Segunda línea con icono y texto
+                  Container(
+                    height: 1, // Altura de la línea
+                    color: Colors.transparent, // Color de la línea
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Icon(Icons.account_circle, color: Colors.white, size: 40),
+                        flex: 2,
+                      ),
+                      Expanded(
+                        flex: 6,
+                        child: Text(
+                          "Nombre Usuario",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -77,6 +111,21 @@ class NavDrawer extends StatelessWidget{
               Navigator.of(context).pop();
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (BuildContext context) => Contacto()));
+            },
+          ),
+          Divider(
+            color: Colors.grey,
+          ),
+          ListTile(
+            title: Text("Lista de Cursos"),
+            leading: IconButton(
+              icon: Icon(Icons.school),
+              onPressed: (){},
+            ),
+            onTap: (){
+              Navigator.of(context).pop();
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) => ListaCursos()));
             },
           ),
 
