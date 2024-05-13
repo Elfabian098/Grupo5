@@ -32,7 +32,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
       // Navega a la pantalla de inicio después de 3 segundos
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => MyHomePage(title: '')),
+        MaterialPageRoute(builder: (context) => MyHomePage(title: 'Home')),
       );
     });
   }

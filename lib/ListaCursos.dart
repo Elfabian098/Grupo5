@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:guia5/NavDrawer.dart';
+import 'package:guia5/Cursos/Historia y geografia.dart';
 
 class ListaCursos extends StatelessWidget {
   @override
@@ -204,11 +205,19 @@ class ListaCursos extends StatelessWidget {
                             ],
                           ),
                         ),
-                        Container( // Contenedor para el icono
-                          padding: const EdgeInsets.all(8.0),
-                          child: Icon(
-                            Icons.arrow_right_alt,
-                            size: 40,
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => His_Geo()),
+                            );
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Icon(
+                              Icons.arrow_right_alt,
+                              size: 40,
+                            ),
                           ),
                         ),
                       ],

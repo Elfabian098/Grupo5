@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:guia5/SplashScreen2.dart';
+
 import 'package:guia5/SplashScreen.dart';// Importa el segundo splash screen
 
 void main() {
