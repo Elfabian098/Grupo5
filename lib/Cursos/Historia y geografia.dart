@@ -22,27 +22,6 @@ class His_Geo extends StatelessWidget {
     );
   }
 }
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Mi Aplicación',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        textTheme: TextTheme(
-          headline1: TextStyle(fontSize: 28, fontWeight: FontWeight.w900, color: Colors.black),
-          headline2: TextStyle(fontSize: 22, fontWeight: FontWeight.w500, color: Colors.black),
-          headline3: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.blue),
-          headline4: TextStyle(fontSize: 16, color: Colors.black),
-          bodyText1: TextStyle(fontSize: 14, fontStyle: FontStyle.italic, color: Colors.grey[600]),
-        ),
-      ),
-      home: MyHomePage(),
-    );
-  }
-}
 
 class MyHomePage extends StatelessWidget {
   @override
@@ -53,7 +32,10 @@ class MyHomePage extends StatelessWidget {
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
-            Navigator.pop(context); // Utiliza Navigator.pop para regresar a la página anterior
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ListaCursos()),
+            );
           },
         ),
       ),
@@ -63,7 +45,6 @@ class MyHomePage extends StatelessWidget {
     );
   }
 }
-
 
 class ContentArea extends StatelessWidget {
   @override
@@ -261,3 +242,4 @@ class ListContainer extends StatelessWidget {
     );
   }
 }
+
