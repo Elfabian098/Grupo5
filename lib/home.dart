@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:guia5/NavDrawer.dart';
+
 class MyHomePage extends StatefulWidget
 { const MyHomePage ({Key? key, required this.title}) : super(key: key);
   final String title;
@@ -34,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
           width: 320,
           height: 320,
             color: Colors.white,
-          child: Image.asset('../assets/ucv.jpg'),
+          child: Image.asset('../assets/doramayer.jpg'),
         ),
       ),
       drawer: NavDrawer(),

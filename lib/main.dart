@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:guia5/Coordinadores.dart';
-import 'package:guia5/SplashScreen.dart';
-import 'package:guia5/home.dart';
+import 'package:guia5/SplashScreen2.dart';
+import 'package:guia5/SplashScreen.dart';// Importa el segundo splash screen
 
 void main() {
   runApp(MyApp());
@@ -16,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: SplashScreen(),
+      home: SplashScreen(), // Cambia el home a LoginPage
     );
   }
 }
@@ -243,7 +242,7 @@ class _LoginPageState extends State<LoginPage> {
                                     // Aquí puedes agregar la navegación a la siguiente pantalla
                                     Navigator.push(
                                       context,
-                                      MaterialPageRoute(builder: (context) => SplashScreen()), // Navega a la HomePage
+                                      MaterialPageRoute(builder: (context) => SplashScreen2()), // Cambia a SplashScreen2
                                     );
                                     // Acceso concedido
                                     print('Acceso concedido');
@@ -305,4 +304,3 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
-
