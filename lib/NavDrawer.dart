@@ -44,7 +44,7 @@ class NavDrawer extends StatelessWidget{
                         Padding(
                           padding: EdgeInsets.all(8.0),
                           child: CircleAvatar(
-                            backgroundImage: AssetImage('../assets/dora_mayer.jpg'), // Ruta de la imagen
+                            backgroundImage: AssetImage('assets/dora_mayer.jpg'), // Ruta de la imagen
                             radius: 20, // Tamaño del avatar
                           ),
                         ),

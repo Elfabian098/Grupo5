@@ -53,7 +53,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              '../assets/doramayer2.jpg', // Ruta de la imagen en tu carpeta assets
+              'assets/doramayer2.jpg', // Ruta de la imagen en tu carpeta assets
               width: 500, // Ancho deseado de la imagen
               height: 500, // Alto deseado de la imagen
               // Ajusta el fit según tus necesidades

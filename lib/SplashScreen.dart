@@ -30,7 +30,7 @@ class _SplashScreenState extends State<SplashScreen> {
       backgroundColor: Colors.white, // Cambia el color de fondo según tu diseño
       body: Center(
         child: Image.asset(
-          '../assets/doramayer.jpg', // Ruta de la imagen en tu carpeta assets
+          'assets/doramayer.jpg', // Ruta de la imagen en tu carpeta assets
           width: 500, // Ancho deseado de la imagen
           height: 500, // Alto deseado de la imagen
           // Ajusta el fit según tus necesidades

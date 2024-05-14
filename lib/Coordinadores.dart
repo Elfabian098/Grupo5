@@ -41,7 +41,7 @@ class Escenario1 extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           CircleAvatar(
-            backgroundImage: AssetImage('../assets/coordinador1.jpg'),
+            backgroundImage: AssetImage('assets/coordinador1.jpg'),
             radius: 60.0,
           ),
           SizedBox(height: 20.0),

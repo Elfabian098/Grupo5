@@ -153,7 +153,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                           image: DecorationImage(
                             fit: BoxFit.cover,
                             image: Image.asset(
-                              '../assets/fotoperfil.webp',
+                              'assets/fotoperfil.webp',
                             ).image,
                           ),
                           borderRadius: BorderRadius.circular(12),
@@ -570,7 +570,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
               color: Theme.of(context).backgroundColor, // Usar el color del tema para el fondo
               image: DecorationImage(
                 fit: BoxFit.cover,
-                image: AssetImage('../assets/doramayer.jpg'),
+                image: AssetImage('assets/doramayer.jpg'),
               ),
               borderRadius: BorderRadius.circular(18),
               border: Border.all(

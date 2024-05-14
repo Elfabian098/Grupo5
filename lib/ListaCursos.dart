@@ -31,8 +31,8 @@ class ListaCursos extends StatelessWidget {
                       children: [
                         Container( // Contenedor para la imagen
                           padding: const EdgeInsets.all(8.0),
-                          child: Image.network(
-                            '../assets/arte_cultura.png',
+                          child: Image.asset(
+                            'assets/arte_cultura.png',
                             width: 120,
                             height: 120,
                           ),
@@ -81,7 +81,7 @@ class ListaCursos extends StatelessWidget {
                         Container( // Contenedor para la imagen
                           padding: const EdgeInsets.all(8.0),
                           child: Image.asset(
-                            '../assets/comunicacion.jpg',
+                            'assets/comunicacion.jpg',
                             width: 120,
                             height: 120,
                           ),
@@ -130,7 +130,7 @@ class ListaCursos extends StatelessWidget {
                         Container( // Contenedor para la imagen
                           padding: const EdgeInsets.all(8.0),
                           child: Image.asset(
-                            '../assets/EPT.jpg',
+                            'assets/EPT.jpg',
                             width: 120,
                             height: 120,
                           ),
@@ -179,7 +179,7 @@ class ListaCursos extends StatelessWidget {
                         Container( // Contenedor para la imagen
                           padding: const EdgeInsets.all(8.0),
                           child: Image.asset(
-                            '../assets/historia.jpg',
+                            'assets/historia.jpg',
                             width: 120,
                             height: 120,
                           ),
@@ -236,7 +236,7 @@ class ListaCursos extends StatelessWidget {
                         Container( // Contenedor para la imagen
                           padding: const EdgeInsets.all(8.0),
                           child: Image.asset(
-                            '../assets/ingles.jpg',
+                            'assets/ingles.jpg',
                             width: 120,
                             height: 120,
                           ),
@@ -285,7 +285,7 @@ class ListaCursos extends StatelessWidget {
                         Container( // Contenedor para la imagen
                           padding: const EdgeInsets.all(8.0),
                           child: Image.asset(
-                            '../assets/matematica.jpg',
+                            'assets/matematica.jpg',
                             width: 120,
                             height: 120,
                           ),
@@ -334,7 +334,7 @@ class ListaCursos extends StatelessWidget {
                         Container( // Contenedor para la imagen
                           padding: const EdgeInsets.all(8.0),
                           child: Image.asset(
-                            '../assets/quimica.jpg',
+                            'assets/quimica.jpg',
                             width: 120,
                             height: 120,
                           ),
