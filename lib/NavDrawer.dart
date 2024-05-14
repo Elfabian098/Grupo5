@@ -5,8 +5,24 @@ import 'package:guia5/Perfil.dart';
 import 'package:guia5/Contacto.dart';
 import 'package:guia5/main.dart';
 import 'package:guia5/ListaCursos.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class NavDrawer extends StatelessWidget{
+
+ /* String datousuario="";
+  @override
+  void initState(){
+    super.initState();
+    _cargarPreferencia();
+  }
+
+   _cargarPreferencia() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState
+}
+
+  */
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -95,7 +111,7 @@ class NavDrawer extends StatelessWidget{
             onTap: (){
               Navigator.of(context).pop();
               Navigator.of(context).push(MaterialPageRoute(
-         builder: (BuildContext context) => Perfil()));
+         builder: (BuildContext context) => MyPerfilWidget()));
             },
           ),
           Divider(
@@ -167,3 +183,5 @@ class NavDrawer extends StatelessWidget{
     );
   }
 }
+
+

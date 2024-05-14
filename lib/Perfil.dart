@@ -1,100 +1,588 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:guia5/NavDrawer.dart';
 
-class Perfil extends StatelessWidget{
-  const Perfil({Key? key}) : super(key: key);
+/*
+void main() {
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => ThemeProvider(),
+      child: Consumer<ThemeProvider>(
+        builder: (context, themeProvider, _) {
+          return MaterialApp(
+            themeMode: themeProvider.themeMode,
+            darkTheme: ThemeData.dark(),
+            theme: ThemeData.light(),
+            home: PerfilWidget(),
+          );
+        },
+      ),
+    ),
+  );
+}
+*/
+
+class MyPerfilWidget extends StatelessWidget {
   @override
-  Widget build(BuildContext context){
-    Widget titleSection = Container(
-      padding: const EdgeInsets.all(10),
-      child: Row(
-        children: [
-          Expanded(child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [Container(
-              padding:  const EdgeInsets.only(bottom: 3),
-            ),
-            Text( textAlign: TextAlign.center,
-              'DR. PERVIS PAREDES\nDECANO DE LA FACULTAD DE INGENIERIA INDUSTRIAL Y DE SISTEMAS\n'
-                  'Resolución R. N* 3389-2019-UNFV\n(+51) 748-0888 \nAnexo: 8740 \ndecanato.filis@unfv.edu.pe'
-                  ,
-              style: TextStyle(
-                color: Colors.grey[500],
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider(
+      create: (_) => ThemeProvider(),
+      child: Consumer<ThemeProvider>(
+        builder: (context, themeProvider, _) {
+          return MaterialApp(
+            themeMode: themeProvider.themeMode,
+            darkTheme: ThemeData.dark(),
+            theme: ThemeData.light(),
+            home: PerfilWidget(),
+          );
+        },
+      ),
+    );
+  }
+}
+
+class ThemeProvider extends ChangeNotifier {
+  ThemeMode _themeMode = ThemeMode.light;
+
+  ThemeMode get themeMode => _themeMode;
+
+  void setTheme(ThemeMode mode) {
+    _themeMode = mode;
+    notifyListeners();
+  }
+}
+
+void setDarkModeSetting(BuildContext context, ThemeMode mode) {
+  Provider.of<ThemeProvider>(context, listen: false).setTheme(mode);
+}
+
+
+class PerfilWidget extends StatefulWidget {
+  const PerfilWidget({Key? key}) : super(key: key);
+
+  @override
+  State<PerfilWidget> createState() => _PerfilWidgetState();
+}
+class _PerfilWidgetState extends State<PerfilWidget> {
+  Widget build(BuildContext context) {
+    return Scaffold(
+
+      backgroundColor: Theme.of(context).brightness == Brightness.light ?  Color(0xFFF1F4F8): Colors.black87,
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(100),
+        child: AppBar(
+          backgroundColor: Theme.of(context).brightness == Brightness.light ? Colors.white : Colors.black,
+          automaticallyImplyLeading: true, // Deshabilitar el botón de retroceso automático,
+          iconTheme: IconThemeData(
+            size: 30, // Ajusta el tamaño del icono aquí
+            color: Theme.of(context).brightness == Brightness.light ? Colors.black : Colors.white,
+          ),
+          /* leading: IconButton(
+            iconSize: 32,
+            icon: Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) => MyHomePage(title: '"Comunidad  I+E+Dora+Mayer"')));// Aquí puedes añadir la lógica para volver a la ventana anterior
+               // Esto cierra la ventana actual y vuelve a la anterior
+            },
+          ),
+            */
+          flexibleSpace: FlexibleSpaceBar(
+            title: Align(
+              alignment: AlignmentDirectional(0, 1),
+              child: Text(
+                'Perfil - Dora Mayer',
+                textAlign: TextAlign.start,
+                style: TextStyle(
+                  fontFamily: 'Outfit',
+                  color: Theme.of(context).brightness == Brightness.light ? Colors.black : Colors.white,
+                  fontSize: 36,
+                  letterSpacing: 0,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
-            )
+            ),
+            centerTitle: false,
+            expandedTitleScale: 1.0,
+            titlePadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
+          ),
+          elevation: 0,
+        ),
+      ),
+
+      body: Column(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Container(
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                  color: Theme.of(context).brightness == Brightness.light ? Colors.white : Colors.black,
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 10,
+                      color: Theme.of(context).brightness == Brightness.light ? Color(0x3416202A) : Colors.black,
+                      offset: Offset(
+                        0.0,
+                        0,
+                      ),
+                    )
+                  ],
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(
+                    color: Theme.of(context).brightness == Brightness.light ? Color(0x3416202A) : Color(0x34CED1DA), // Usar el color del tema para el borde
+                    width: 2, //tamaño del borde
+                  ),
+
+                  shape: BoxShape.rectangle,
+                ),
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(24, 12, 24, 12),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Container(
+                        width: 70,
+                        height: 70,
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).brightness == Brightness.light ? Colors.white : Colors.black,
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: Image.asset(
+                              '../assets/fotoperfil.webp',
+                            ).image,
+                          ),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Miguel Calderón-Favaro',
+                              style: TextStyle(
+                                fontFamily: 'Outfit',
+                                color: Theme.of(context).brightness == Brightness.light ? Colors.black : Colors.white,
+                                fontSize: 24,
+                                letterSpacing: 0,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            Padding(
+                              padding:
+                              EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
+                              child: Text(
+                                'miguelcalderon@mayer.edu.pe',
+                                style: TextStyle(
+                                  fontFamily: 'Outfit',
+                                  color: Theme.of(context).brightness == Brightness.light ? Colors.black : Colors.white,
+                                  fontSize: 14,
+                                  letterSpacing: 0,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
+
+
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0), //espaciado de arriba
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                if (Theme.of(context).brightness == Brightness.light)
+                  TextButton(
+                    onPressed: () {
+                      setDarkModeSetting(context, ThemeMode.dark);
+                    },
+                    style: ButtonStyle(
+                      backgroundColor:
+                      MaterialStateProperty.all<Color>(Theme.of(context).brightness == Brightness.light ? Colors.white : Colors.black),
+                    ),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(12),
+                          shape: BoxShape.rectangle
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(24, 12, 24, 12),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Cambiar a Tema Oscuro',
+                              style: TextStyle(
+                                fontFamily: 'Plus Jakarta Sans',
+                                color: Theme.of(context).brightness == Brightness.light ? Colors.black : Colors.white,
+                                fontSize: 14,
+                                letterSpacing: 0,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ),
+                            Container(
+                              width: 80,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                color: Colors.black ,
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: Stack(
+                                alignment: AlignmentDirectional(0, 0),
+                                children: [
+                                  Align(
+                                    alignment: AlignmentDirectional(0.95, 0),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 0, 8, 0),
+                                      child: Icon(
+                                        Icons.nights_stay,
+                                        color: Colors.white,
+                                        size: 20,
+                                      ),
+                                    ),
+                                  ),
+                                  Align(
+                                    alignment: AlignmentDirectional(-0.85, 0),
+                                    child: Container(
+                                      width: 36,
+                                      height: 36,
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            blurRadius: 4,
+                                            color: Color(0x430B0D0F),
+                                            offset: Offset(
+                                              0.0,
+                                              2,
+                                            ),
+                                          )
+                                        ],
+                                        borderRadius: BorderRadius.circular(30),
+                                        shape: BoxShape.rectangle,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                if (Theme.of(context).brightness == Brightness.dark)
+                  TextButton(
+                    onPressed: () {
+                      setDarkModeSetting(context, ThemeMode.light);
+                    },
+                    style: ButtonStyle(
+                      backgroundColor:
+                      MaterialStateProperty.all<Color>(Theme.of(context).brightness == Brightness.light ? Colors.white : Colors.black),
+                    ),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                          color: Theme.of(context).brightness == Brightness.light ? Colors.white : Colors.black,
+                          borderRadius: BorderRadius.circular(12),
+                          shape: BoxShape.rectangle
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(24, 12, 24, 12),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Cambiar a Tema Claro',
+                              style: TextStyle(
+                                fontFamily: 'Plus Jakarta Sans',
+                                color: Theme.of(context).brightness == Brightness.light ? Colors.black : Colors.white,
+                                fontSize: 14,
+                                letterSpacing: 0,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ),
+                            Container(
+                              width: 80,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: Stack(
+                                alignment: AlignmentDirectional(0, 0),
+                                children: [
+                                  Align(
+                                    alignment: AlignmentDirectional(-0.9, 0),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          8, 2, 0, 0),
+                                      child: Icon(
+                                        Icons.wb_sunny_rounded,
+                                        color: Colors.black,
+                                        size: 24,
+                                      ),
+                                    ),
+                                  ),
+                                  Align(
+                                    alignment: AlignmentDirectional(0.9, 0),
+                                    child: Container(
+                                      width: 36,
+                                      height: 36,
+                                      decoration: BoxDecoration(
+                                        color: Colors.black, // COLOR DEL BOTÓN DE TEMA
+                                        boxShadow: [
+                                          BoxShadow(
+                                            blurRadius: 4,
+                                            color: Color(0x430B0D0F),
+                                            offset: Offset(
+                                              0.0,
+                                              2,
+                                            ),
+                                          )
+                                        ],
+                                        borderRadius: BorderRadius.circular(30), // borde del botón de tema
+                                        shape: BoxShape.rectangle, //no mover
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+              ],
+            ),
           ),
-        Icon(
-          Icons.star,
-          color: Colors.red[500],
-        ),
-          const Text('41'),
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Theme.of(context).brightness == Brightness.light ? Colors.white : Colors.black,
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(24, 12, 0, 12),
+                        child: Text(
+                          'Ajustes de la Cuenta',
+                          style: TextStyle(
+                            fontFamily: 'Plus Jakarta Sans',
+                            color: Theme.of(context).brightness == Brightness.light ? Colors.black : Colors.white,
+                            fontSize: 14,
+                            letterSpacing: 0,
+                            fontWeight: FontWeight.normal,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20, 12, 20, 0),
+                child: Container(
+                  width: double.infinity,
+                  height: 60,
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).brightness == Brightness.light ? Colors.white : Colors.black, // Usar color blanco en el tema claro y negro en el tema oscuro
+                    boxShadow: [
+                      BoxShadow(
+                        blurRadius: 10,
+                        color: Theme.of(context).brightness == Brightness.light ? Color(0x3416202A) : Colors.black,
+                        offset: Offset(
+                          0.0,
+                          0,
+                        ),
+                      )
+                    ], //sombra del contenedor
+                    borderRadius: BorderRadius.circular(12),
+                    shape: BoxShape.rectangle,
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.all(8),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                          child: Text(
+                            'Cambiar Contraseña',
+                            style: TextStyle(
+                              fontFamily: 'Plus Jakarta Sans',
+                              color: Theme.of(context).brightness == Brightness.light ? Colors.black : Colors.white, // Usar color negro en el tema claro y blanco en el tema oscuro
+                              fontSize: 14,
+                              letterSpacing: 0,
+                              fontWeight: FontWeight.normal,
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: Align(
+                            alignment: AlignmentDirectional(0.9, 0),
+                            child: Icon(
+                              Icons.arrow_forward_ios,
+                              color: Theme.of(context).brightness == Brightness.light ? Colors.black : Colors.white, // Usar color negro en el tema claro y blanco en el tema oscuro
+                              size: 18,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20, 12, 20, 0),
+                child: Container(
+                  width: double.infinity,
+                  height: 60,
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).brightness == Brightness.light ? Colors.white : Colors.black,
+                    boxShadow: [
+                      BoxShadow(
+                        blurRadius: 10,
+                        color: Theme.of(context).brightness == Brightness.light ? Color(0x3416202A) : Colors.black,
+                        offset: Offset(
+                          0.0,
+                          0,
+                        ),
+                      )
+                    ], //sombra del contenedor
+                    borderRadius: BorderRadius.circular(12),
+                    shape: BoxShape.rectangle,
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.all(8),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                          child: Text(
+                            'Editar Perfil',
+                            style: TextStyle(
+                              fontFamily: 'Plus Jakarta Sans',
+                              color: Theme.of(context).brightness == Brightness.light ? Colors.black : Colors.white,
+                              fontSize: 14,
+                              letterSpacing: 0,
+                              fontWeight: FontWeight.normal,
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: Align(
+                            alignment: AlignmentDirectional(0.9, 0),
+                            child: Icon(
+                              Icons.arrow_forward_ios,
+                              color: Theme.of(context).brightness == Brightness.light ? Colors.black : Colors.white,
+                              size: 18,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.all(4),
+                      child: ElevatedButton(
+                        onPressed: () {
+                          print('Botón Presionado...');
+                        },
+                        style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            side: BorderSide(color: Colors.transparent),
+                          ),
+                        ).copyWith(
+                          backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                                (Set<MaterialState> states) {
+                              if (states.contains(MaterialState.disabled)) {
+                                return Theme.of(context).brightness == Brightness.light ? Colors.white : Colors.black; // Color del botón cuando está deshabilitado
+                              }
+                              return Theme.of(context).brightness == Brightness.light ? Colors.white : Colors.black; // Color del botón cuando está habilitado
+                            },
+                          ),
+                        ),
+                        child: Text(
+                          'Cerrar Sesión',
+                          style: TextStyle(
+                            fontFamily: 'Readex Pro',
+                            fontSize: 16,
+                            letterSpacing: 0,
+                            color: Theme.of(context).brightness == Brightness.light ? Colors.black : Colors.white, // Color del texto
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          Container(
+            width: MediaQuery.of(context).size.width,
+            height: 158,
+            decoration: BoxDecoration(
+              color: Theme.of(context).backgroundColor, // Usar el color del tema para el fondo
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                image: AssetImage('../assets/doramayer.jpg'),
+              ),
+              borderRadius: BorderRadius.circular(18),
+              border: Border.all(
+                color: Theme.of(context).brightness == Brightness.light ? Color(0x3416202A) : Colors.black54, // Usar el color del tema para el borde
+                width: 10,
+              ),
+            ),
+          )
+
         ],
-      )
+      ),
+      drawer: NavDrawer(),
     );
-
-Color color= Colors.orange;
-
-Widget buttonSection = Row(
-  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-    children: [
-      _buildButtonColumn(color,Icons.call,'CALL'),
-      _buildButtonColumn(color,Icons.near_me,'ROUTE'),
-      _buildButtonColumn(color,Icons.contacts,'CONTACTO')
-    ],
-);
-
-Widget textSection = const Padding(
-  padding: EdgeInsets.all(32),
-  child: Text(
-    'Estimados nuevos estudiantes, les doy la bienvenida a todos ustedes, en esta nueva era'
-        'le damos un saludo a todos ustedes y vamos a indicarles que la universidad es su casa'
-        'ustedes son la razón de ser de la facultad y tendrán unos docentes de pimer nivel en la cual'
-        'la enseñanza es profesional y con mucho cariño para ustedes xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
-        ,softWrap: true,
-  )
-);
-return MaterialApp(
- title: 'Bienvenida del Decano FIIS',
- debugShowCheckedModeBanner: false,
- home: Scaffold(
-    drawer: NavDrawer(),
-appBar: AppBar(
-title: const Text('Bienvenida del Decano FIIS'),
-),
-body: ListView(
-children: [
-  Image.asset('../assets/decano.jpg',width: 200,height: 340,fit: BoxFit.cover,
-),
-titleSection,
-buttonSection,
-textSection,
-],
-),
-)
-);
-
-  }
-  Column _buildButtonColumn(Color color, IconData icon, String label)
-  { return Column(
-    mainAxisSize: MainAxisSize.min,
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: [
-      Icon(icon, color: color),
-      Container(
-        margin: const EdgeInsets.only(top: 8),
-        child: Text(
-          label,
-          style: TextStyle(
-            fontSize: 12,
-            fontWeight: FontWeight.w400,
-            color: color,
-          ),
-        ),
-      )
-    ],
-  );
-
   }
 }

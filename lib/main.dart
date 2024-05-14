@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:guia5/SplashScreen2.dart';
-
 import 'package:guia5/SplashScreen.dart';// Importa el segundo splash screen
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   runApp(MyApp());
@@ -240,6 +240,17 @@ class _LoginPageState extends State<LoginPage> {
                                 if (email.isNotEmpty && password.isNotEmpty) {
                                   // Buscar usuario y clave
                                   if (buscarUsuario(email, password)) {
+
+                                    //Guardar el nombre del usuario o el correo
+
+                                    /*
+                                    _GuardarDato1() async{
+                                      SharedPreferences prefs= await SharedPreferences.getInstance();
+                                      setState(() {
+                                        prefs.setString("key1", _emailAddressTextController.text);
+                                      });
+                                    }
+                                    */
 
                                     // Aquí puedes agregar la navegación a la siguiente pantalla
                                     Navigator.push(

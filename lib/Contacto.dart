@@ -7,7 +7,7 @@ class Contacto extends StatelessWidget
   Widget build(BuildContext context){
     return new Scaffold(
       appBar: AppBar(
-        title: Text("Contact"),
+        title: Text("Contacto"),
       ),
       drawer: NavDrawer(),
       body: Center(child: Text("Esta es la página de contacto")),
