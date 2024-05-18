@@ -35,8 +35,8 @@ class _LoginPageState extends State<LoginPage> {
   late bool _passwordVisibility;
 
   // Arreglos unidimensionales paralelos para almacenar usuarios y claves
-  final List<String> usuarios = ['giussepi@gmail.com', 'andre@gmail.com', 'gaa@gmail.com', 'hola@gmail.com'];
-  final List<String> claves = ['1234', '4321', '4321', '4321'];
+  final List<String> usuarios = ['giussepi@gmail.com', 'calderon@gmail.com', 'oviedo@gmail.com', 'hola@gmail.com'];
+  final List<String> claves = ['1234', '4321', '1234', '4321'];
 
   // Variables para mensajes de error
   String emailErrorText = '';

@@ -61,7 +61,7 @@ class ListaCursos extends StatelessWidget {
                         Container( // Contenedor para el icono
                           padding: const EdgeInsets.all(8.0),
                           child: Icon(
-                            Icons.arrow_right_alt,
+                            Icons.arrow_forward_ios,
                             size: 40,
                           ),
                         ),
@@ -110,7 +110,7 @@ class ListaCursos extends StatelessWidget {
                         Container( // Contenedor para el icono
                           padding: const EdgeInsets.all(8.0),
                           child: Icon(
-                            Icons.arrow_right_alt,
+                            Icons.arrow_forward_ios,
                             size: 40,
                           ),
                         ),
@@ -159,7 +159,7 @@ class ListaCursos extends StatelessWidget {
                         Container( // Contenedor para el icono
                           padding: const EdgeInsets.all(8.0),
                           child: Icon(
-                            Icons.arrow_right_alt,
+                            Icons.arrow_forward_ios,
                             size: 40,
                           ),
                         ),
@@ -215,7 +215,7 @@ class ListaCursos extends StatelessWidget {
                           child: Container(
                             padding: const EdgeInsets.all(8.0),
                             child: Icon(
-                              Icons.arrow_right_alt,
+                              Icons.arrow_forward_ios,
                               size: 40,
                             ),
                           ),
@@ -265,7 +265,7 @@ class ListaCursos extends StatelessWidget {
                         Container( // Contenedor para el icono
                           padding: const EdgeInsets.all(8.0),
                           child: Icon(
-                            Icons.arrow_right_alt,
+                            Icons.arrow_forward_ios,
                             size: 40,
                           ),
                         ),
@@ -314,7 +314,7 @@ class ListaCursos extends StatelessWidget {
                         Container( // Contenedor para el icono
                           padding: const EdgeInsets.all(8.0),
                           child: Icon(
-                            Icons.arrow_right_alt,
+                            Icons.arrow_forward_ios,
                             size: 40,
                           ),
                         ),
@@ -363,7 +363,7 @@ class ListaCursos extends StatelessWidget {
                         Container( // Contenedor para el icono
                           padding: const EdgeInsets.all(8.0),
                           child: Icon(
-                            Icons.arrow_right_alt,
+                            Icons.arrow_forward_ios,
                             size: 40,
                           ),
                         ),
