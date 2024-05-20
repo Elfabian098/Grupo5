@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:provider/provider.dart';
 import 'package:guia5/NavDrawer.dart';
 
@@ -64,6 +65,23 @@ class PerfilWidget extends StatefulWidget {
   State<PerfilWidget> createState() => _PerfilWidgetState();
 }
 class _PerfilWidgetState extends State<PerfilWidget> {
+  String email = '';
+
+  @override
+  void initState() {
+    super.initState();
+    _loadEmail();
+  }
+
+  Future<void> _loadEmail() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      email = prefs.getString('key1') ?? 'No hay datos';
+    });
+  }
+
+
+
   Widget build(BuildContext context) {
     return Scaffold(
 
@@ -179,7 +197,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                               padding:
                               EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
                               child: Text(
-                                'miguelcalderon@mayer.edu.pe',
+                                email,
                                 style: TextStyle(
                                   fontFamily: 'Outfit',
                                   color: Theme.of(context).brightness == Brightness.light ? Colors.black : Colors.white,

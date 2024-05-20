@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:guia5/SplashScreen2.dart';
-import 'package:guia5/SplashScreen.dart';// Importa el segundo splash screen
 import 'package:shared_preferences/shared_preferences.dart';
+import 'SplashScreen2.dart'; // Asegúrate de que este import sea correcto
 
 void main() {
   runApp(MyApp());
@@ -17,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: SplashScreen(), // Cambia el home a LoginPage
+      home: LoginPage(), // Cambia el home a LoginPage
     );
   }
 }
@@ -50,6 +49,12 @@ class _LoginPageState extends State<LoginPage> {
       }
     }
     return false; // Usuario y/o clave no encontrados
+  }
+
+  // Función para guardar el email del usuario
+  Future<void> _guardarDato1(String email) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString("key1", email);
   }
 
   @override
@@ -213,7 +218,7 @@ class _LoginPageState extends State<LoginPage> {
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
                             child: ElevatedButton(
-                              onPressed: () {
+                              onPressed: () async {
                                 String email = _emailAddressTextController.text.trim();
                                 String password = _passwordTextController.text.trim();
 
@@ -240,17 +245,8 @@ class _LoginPageState extends State<LoginPage> {
                                 if (email.isNotEmpty && password.isNotEmpty) {
                                   // Buscar usuario y clave
                                   if (buscarUsuario(email, password)) {
-
-                                    //Guardar el nombre del usuario o el correo
-
-                                    /*
-                                    _GuardarDato1() async{
-                                      SharedPreferences prefs= await SharedPreferences.getInstance();
-                                      setState(() {
-                                        prefs.setString("key1", _emailAddressTextController.text);
-                                      });
-                                    }
-                                    */
+                                    // Guardar el nombre del usuario o el correo
+                                    await _guardarDato1(email);
 
                                     // Aquí puedes agregar la navegación a la siguiente pantalla
                                     Navigator.push(
@@ -317,3 +313,4 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
+
