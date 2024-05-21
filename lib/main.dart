@@ -79,7 +79,7 @@ class _LoginPageState extends State<LoginPage> {
         height: double.infinity,
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color(0xFF580001), Color(0xFF632020)],
+            colors: [Color(0xFFB71D12), Color(0xFFB94037)],
             stops: [0, 1],
             begin: AlignmentDirectional(0.87, -1),
             end: AlignmentDirectional(-0.87, 1),
@@ -122,7 +122,7 @@ class _LoginPageState extends State<LoginPage> {
                     maxWidth: 570,
                   ),
                   decoration: BoxDecoration(
-                    color: Color(0xFFC5C5C5),
+                    color: Color(0xFF222222),
                     boxShadow: [
                       BoxShadow(
                         blurRadius: 4,
@@ -145,7 +145,7 @@ class _LoginPageState extends State<LoginPage> {
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontFamily: 'Plus Jakarta Sans',
-                              color: Color(0xFF101213),
+                              color: Color(0xFFE7EDF1),
                               fontSize: 40,
                               fontWeight: FontWeight.w600,
                             ),
@@ -157,7 +157,7 @@ class _LoginPageState extends State<LoginPage> {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontFamily: 'Plus Jakarta Sans',
-                                color: Color(0xFF57636C),
+                                color: Color(0xFFE7EDF1),
                                 fontSize: 16,
                                 fontWeight: FontWeight.w500,
                               ),
@@ -172,12 +172,20 @@ class _LoginPageState extends State<LoginPage> {
                                 autofocus: true,
                                 decoration: InputDecoration(
                                   labelText: 'Correo',
-                                  labelStyle: TextStyle(color: Color(0xFF57636C)),
-                                  fillColor: Colors.white,
+                                  labelStyle: TextStyle(color: Color(0xFFE7EDF1)),
+                                  fillColor: Color(0xFF222222),
                                   filled: true,
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(12),
-                                    borderSide: BorderSide.none,
+                                    borderSide: BorderSide(color: Colors.white), // Borde blanco
+                                  ),
+                                  enabledBorder: OutlineInputBorder( // Borde blanco cuando está habilitado
+                                    borderRadius: BorderRadius.circular(12),
+                                    borderSide: BorderSide(color: Colors.white),
+                                  ),
+                                  focusedBorder: OutlineInputBorder( // Borde blanco cuando está enfocado
+                                    borderRadius: BorderRadius.circular(12),
+                                    borderSide: BorderSide(color: Colors.white),
                                   ),
                                   errorText: emailErrorText.isNotEmpty ? emailErrorText : null,
                                 ),
@@ -194,12 +202,20 @@ class _LoginPageState extends State<LoginPage> {
                                 obscureText: !_passwordVisibility,
                                 decoration: InputDecoration(
                                   labelText: 'Contraseña',
-                                  labelStyle: TextStyle(color: Color(0xFF57636C)),
-                                  fillColor: Colors.white,
+                                  labelStyle: TextStyle(color: Color(0xFFE7EDF1)),
+                                  fillColor: Color(0xFF222222),
                                   filled: true,
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(12),
-                                    borderSide: BorderSide.none,
+                                    borderSide: BorderSide(color: Colors.white), // Borde blanco
+                                  ),
+                                  enabledBorder: OutlineInputBorder( // Borde blanco cuando está habilitado
+                                    borderRadius: BorderRadius.circular(12),
+                                    borderSide: BorderSide(color: Colors.white),
+                                  ),
+                                  focusedBorder: OutlineInputBorder( // Borde blanco cuando está enfocado
+                                    borderRadius: BorderRadius.circular(12),
+                                    borderSide: BorderSide(color: Colors.white),
                                   ),
                                   errorText: passwordErrorText.isNotEmpty ? passwordErrorText : null,
                                   suffixIcon: IconButton(
@@ -274,7 +290,8 @@ class _LoginPageState extends State<LoginPage> {
                                 }
                               },
                               style: ButtonStyle(
-                                backgroundColor: MaterialStateProperty.all<Color>(Color(0xFFDD0002)), // Color de fondo del botón
+                                backgroundColor: MaterialStateProperty.all<Color>(Color(
+                                    0xFFB71D12)), // Color de fondo del botón
                                 padding: MaterialStateProperty.all<EdgeInsetsGeometry>(EdgeInsets.zero),
                                 elevation: MaterialStateProperty.all<double>(3),
                                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
