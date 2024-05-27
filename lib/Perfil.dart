@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:provider/provider.dart';
 import 'package:guia5/NavDrawer.dart';
+import 'package:guia5/CambiarContraseña.dart';
 
 /*
 void main() {
@@ -197,7 +198,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                               padding:
                               EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
                               child: Text(
-                                email,
+                                email ,
                                 style: TextStyle(
                                   fontFamily: 'Outfit',
                                   color: Theme.of(context).brightness == Brightness.light ? Colors.black : Colors.white,
@@ -457,6 +458,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                       children: [
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+
                           child: Text(
                             'Cambiar Contraseña',
                             style: TextStyle(
@@ -468,14 +470,20 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                             ),
                           ),
                         ),
+
                         Expanded(
                           child: Align(
                             alignment: AlignmentDirectional(0.9, 0),
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.push( context, MaterialPageRoute(builder: (context) => ChangePasswordPage())); // Cambia a SplashScreen2 );
+                              },
                             child: Icon(
                               Icons.arrow_forward_ios,
                               color: Theme.of(context).brightness == Brightness.light ? Colors.black : Colors.white, // Usar color negro en el tema claro y blanco en el tema oscuro
                               size: 18,
                             ),
+                          ),
                           ),
                         ),
                       ],
@@ -585,7 +593,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
             width: MediaQuery.of(context).size.width,
             height: 158,
             decoration: BoxDecoration(
-              color: Theme.of(context).backgroundColor, // Usar el color del tema para el fondo
+              color: Theme.of(context).brightness == Brightness.light ? Color(0x3416202A) : Colors.black54, // Usar el color del tema para el fondo
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: AssetImage('assets/doramayer.jpg'),
