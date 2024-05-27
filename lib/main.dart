@@ -172,7 +172,7 @@ class _LoginPageState extends State<LoginPage> {
                                 autofocus: true,
                                 decoration: InputDecoration(
                                   labelText: 'Correo',
-                                  labelStyle: TextStyle(color: Color(0xFFE7EDF1)),
+                                  labelStyle: TextStyle(color: Colors.white), // Cambio del color del texto de la etiqueta a blanco
                                   fillColor: Color(0xFF222222),
                                   filled: true,
                                   border: OutlineInputBorder(
@@ -188,8 +188,9 @@ class _LoginPageState extends State<LoginPage> {
                                     borderSide: BorderSide(color: Colors.white),
                                   ),
                                   errorText: emailErrorText.isNotEmpty ? emailErrorText : null,
+                                  errorStyle: TextStyle(color: Colors.white), // Cambio del color del texto de error a blanco
                                 ),
-                                style: TextStyle(color: Colors.black), // Texto negro mientras escribes
+                                style: TextStyle(color: Colors.white), // Cambio del color del texto de entrada a blanco
                               ),
                             ),
                           ),
@@ -202,7 +203,7 @@ class _LoginPageState extends State<LoginPage> {
                                 obscureText: !_passwordVisibility,
                                 decoration: InputDecoration(
                                   labelText: 'Contraseña',
-                                  labelStyle: TextStyle(color: Color(0xFFE7EDF1)),
+                                  labelStyle: TextStyle(color: Colors.white), // Cambio del color del texto de la etiqueta a blanco
                                   fillColor: Color(0xFF222222),
                                   filled: true,
                                   border: OutlineInputBorder(
@@ -225,12 +226,14 @@ class _LoginPageState extends State<LoginPage> {
                                       });
                                     },
                                     icon: Icon(_passwordVisibility ? Icons.visibility : Icons.visibility_off),
+                                    color: Colors.white, // Cambio del color del ícono a blanco
                                   ),
                                 ),
-                                style: TextStyle(color: Colors.black), // Texto negro mientras escribes
+                                style: TextStyle(color: Colors.white), // Cambio del color del texto de entrada a blanco
                               ),
                             ),
                           ),
+
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
                             child: ElevatedButton(

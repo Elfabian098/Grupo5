@@ -121,13 +121,13 @@ class ContentArea extends StatelessWidget {
                 title: 'Sesión 01',
                 description: '10 de mayo de 2024',
                 date: 'Introducción al curso',
-                isCompleted: true,
+                isCompleted: false,
               ),
               ListContainer(
                 title: 'Sesión 02',
                 description: '15 de mayo de 2024',
                 date: 'El mundo antiguo',
-                isCompleted: true,
+                isCompleted: false,
               ),
               ListContainer(
                 title: 'Sesión 03',
@@ -188,14 +188,19 @@ class TaskDetails extends StatelessWidget {
   }
 }
 
-class ListContainer extends StatelessWidget {
+class ListContainer extends StatefulWidget {
   final String title;
   final String description;
   final String date;
-  final bool isCompleted;
+  bool isCompleted;
 
   ListContainer({required this.title, required this.description, required this.date, this.isCompleted = false});
 
+  @override
+  _ListContainerState createState() => _ListContainerState();
+}
+
+class _ListContainerState extends State<ListContainer> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -204,7 +209,7 @@ class ListContainer extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border.all(color: Colors.grey),
         borderRadius: BorderRadius.circular(8),
-        color: Colors.white, // Color de fondo agregado
+        color: Colors.white,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -213,10 +218,10 @@ class ListContainer extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                title,
+                widget.title,
                 style: Theme.of(context).textTheme.headline3,
               ),
-              if (isCompleted)
+              if (widget.isCompleted)
                 Container(
                   padding: EdgeInsets.all(8),
                   color: Colors.green,
@@ -229,17 +234,117 @@ class ListContainer extends StatelessWidget {
           ),
           SizedBox(height: 4),
           Text(
-            'Fecha: $date',
+            'Fecha: ${widget.date}',
             style: Theme.of(context).textTheme.headline4,
           ),
           SizedBox(height: 4),
           Text(
-            description,
+            widget.description,
             style: Theme.of(context).textTheme.headline4,
           ),
+          SizedBox(height: 8),
+          ElevatedButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all<Color>(Colors.red), // Color de fondo del botón
+            ),
+            onPressed: () async {
+              bool completed = await Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => TareasPage()),
+              );
+              if (completed != null && completed) {
+                setState(() {
+                  widget.isCompleted = true;
+                });
+              }
+            },
+            child: Text(
+              'Ir a Tareas',
+              style: TextStyle(color: Colors.white), // Color del texto blanco
+            ),
+          ),
+
+
+
         ],
       ),
     );
   }
 }
 
+class TareasPage extends StatefulWidget {
+  @override
+  _TareasPageState createState() => _TareasPageState();
+}
+
+class _TareasPageState extends State<TareasPage> {
+  bool task1Completed = false;
+  bool task2Completed = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Tareas'),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context, false);
+          },
+        ),
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Tarea 1',
+              style: Theme.of(context).textTheme.headline3,
+            ),
+            SizedBox(height: 8),
+            Text(
+              'Pregunta: ¿Cuál fue el impacto de la Revolución Francesa en Europa?',
+              style: Theme.of(context).textTheme.headline4,
+            ),
+            TextField(
+              onChanged: (text) {
+                setState(() {
+                  task1Completed = text.isNotEmpty;
+                });
+              },
+              decoration: InputDecoration(hintText: 'Escribe tu respuesta aquí'),
+            ),
+            SizedBox(height: 16),
+            Text(
+              'Tarea 2',
+              style: Theme.of(context).textTheme.headline3,
+            ),
+            SizedBox(height: 8),
+            Text(
+              'Pregunta: Describe las principales características de la geografía física de América del Sur.',
+              style: Theme.of(context).textTheme.headline4,
+            ),
+            TextField(
+              onChanged: (text) {
+                setState(() {
+                  task2Completed = text.isNotEmpty;
+                });
+              },
+              decoration: InputDecoration(hintText: 'Escribe tu respuesta aquí'),
+            ),
+            SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: task1Completed && task2Completed
+                  ? () {
+                Navigator.pop(context, true);
+              }
+                  : null,
+              child: Text('Enviar Tareas'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
