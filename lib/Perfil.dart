@@ -3,6 +3,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:provider/provider.dart';
 import 'package:guia5/NavDrawer.dart';
 import 'package:guia5/CambiarContraseña.dart';
+import 'package:guia5/AjustesCuenta.dart';
+import 'main.dart';
+
 
 /*
 void main() {
@@ -476,7 +479,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                             alignment: AlignmentDirectional(0.9, 0),
                             child: GestureDetector(
                               onTap: () {
-                                Navigator.push( context, MaterialPageRoute(builder: (context) => ChangePasswordPage())); // Cambia a SplashScreen2 );
+                                Navigator.push( context, MaterialPageRoute(builder: (context) => ChangePassword())); // Cambia a SplashScreen2 );
                               },
                             child: Icon(
                               Icons.arrow_forward_ios,
@@ -533,12 +536,17 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                         Expanded(
                           child: Align(
                             alignment: AlignmentDirectional(0.9, 0),
+                              child: GestureDetector(
+                              onTap: () {
+                              Navigator.push( context, MaterialPageRoute(builder: (context) => AjustesCuenta())); // Cambia a SplashScreen2 );
+                              },
                             child: Icon(
                               Icons.arrow_forward_ios,
                               color: Theme.of(context).brightness == Brightness.light ? Colors.black : Colors.white,
                               size: 18,
                             ),
                           ),
+                        ),
                         ),
                       ],
                     ),
@@ -573,6 +581,9 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                             },
                           ),
                         ),
+                      child: GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).pop(); Navigator.of(context).push(MaterialPageRoute( builder: (BuildContext context) => LoginPage())); },
                         child: Text(
                           'Cerrar Sesión',
                           style: TextStyle(
@@ -583,6 +594,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                           ),
                         ),
                       ),
+                    ),
                     ),
                   ],
                 ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'Coordinadores.dart';
 import 'home.dart';
 import 'Perfil.dart';
 import 'Contacto.dart';
@@ -124,18 +123,6 @@ class NavDrawer extends StatelessWidget {
                     Navigator.of(context).pop();
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (BuildContext context) => ListaCursos()));
-                  },
-                ),
-                Divider(
-                  color: Colors.grey,
-                ),
-                ListTile(
-                  title: Text("Coordinadores"),
-                  leading: Icon(Icons.contact_page),
-                  onTap: () {
-                    Navigator.of(context).pop();
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (BuildContext context) => CoordinadoresPage()));
                   },
                 ),
                 Divider(
