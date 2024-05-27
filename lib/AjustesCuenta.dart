@@ -1,4 +1,4 @@
-
+import 'package:guia5/NavDrawer.dart';
 import 'package:flutter/material.dart';
 
 
@@ -23,6 +23,7 @@ class AccountSettingsPage extends StatelessWidget {
         title: Text('Ajustes de Cuenta'),
       ),
       body: AccountSettingsForm(),
+      drawer: NavDrawer(),
     );
   }
 }

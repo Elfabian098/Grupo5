@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:guia5/NavDrawer.dart';
 
 
 
@@ -75,6 +75,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
           ),
         ),
       ),
+      drawer: NavDrawer(),
     );
   }
 }
