@@ -188,7 +188,7 @@ class _LoginPageState extends State<LoginPage> {
                                     borderSide: BorderSide(color: Colors.white),
                                   ),
                                   errorText: emailErrorText.isNotEmpty ? emailErrorText : null,
-                                  errorStyle: TextStyle(color: Colors.white), // Cambio del color del texto de error a blanco
+                                  errorStyle: TextStyle(color: Colors.red), // Cambio del color del texto de error a blanco
                                 ),
                                 style: TextStyle(color: Colors.white), // Cambio del color del texto de entrada a blanco
                               ),
@@ -219,6 +219,7 @@ class _LoginPageState extends State<LoginPage> {
                                     borderSide: BorderSide(color: Colors.white),
                                   ),
                                   errorText: passwordErrorText.isNotEmpty ? passwordErrorText : null,
+                                  errorStyle: TextStyle(color: Colors.red), // Cambio del color del texto de error a rojo
                                   suffixIcon: IconButton(
                                     onPressed: () {
                                       setState(() {
@@ -233,6 +234,7 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                             ),
                           ),
+
 
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
@@ -278,13 +280,13 @@ class _LoginPageState extends State<LoginPage> {
                                     // Usuario y/o clave incorrectos
                                     showDialog(
                                       context: context,
-                                      builder: (context) => AlertDialog(
+                                      builder: (context) => AlertDialog( backgroundColor: Colors.grey,
                                         title: Text('Error'),
-                                        content: Text('Correo electrónico o contraseña incorrectos.'),
+                                        content: Text('Correo electrónico o contraseña incorrectos.' ),
                                         actions: [
                                           TextButton(
                                             onPressed: () => Navigator.pop(context),
-                                            child: Text('OK'),
+                                            child: Text('OK', style: TextStyle(color: Colors.red),),
                                           ),
                                         ],
                                       ),
@@ -320,12 +322,14 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                             ),
                           ),
+
                         ],
                       ),
                     ),
                   ),
                 ),
               ),
+
             ],
           ),
         ),
