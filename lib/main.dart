@@ -79,7 +79,7 @@ class _LoginPageState extends State<LoginPage> {
         height: double.infinity,
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color(0xFFB71D12), Color(0xFFB94037)],
+            colors: [Color(0xFF941301), Color(0xFF9B2119)],
             stops: [0, 1],
             begin: AlignmentDirectional(0.87, -1),
             end: AlignmentDirectional(-0.87, 1),
@@ -106,7 +106,7 @@ class _LoginPageState extends State<LoginPage> {
                       'I. E. DORA MAYER',
                       style: TextStyle(
                         fontFamily: 'Outfit',
-                        color: Colors.white,
+                        color: Color(0xFFFFFFFF),
                         fontSize: 36,
                         letterSpacing: 0,
                       ),
