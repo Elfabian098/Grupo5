@@ -57,7 +57,7 @@ dev_dependencies:
 flutter_launcher_icons:
   android: true
   ios: true
-  image_path: "assets/doram.jpg"
+  image_path: "assets/dododo.png"
 # The following section is specific to Flutter packages.
 flutter:
 
