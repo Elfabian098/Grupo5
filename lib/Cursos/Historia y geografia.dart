@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:guia5/ListaCursos.dart';
+import 'package:guia5/Preguntas/PreguntasHyG/Sesion1HyG.dart';
+import 'package:guia5/Preguntas/PreguntasHyG/Sesion2HyG.dart';
+import 'package:guia5/Preguntas/PreguntasHyG/Sesion3HyG.dart';
+import 'package:guia5/Preguntas/PreguntasHyG/Sesion4HyG.dart';
+import 'package:guia5/Preguntas/PreguntasHyG/Sesion5HyG.dart';
+
+void main() => runApp(His_Geo());
 
 class His_Geo extends StatelessWidget {
   @override
@@ -85,70 +92,72 @@ class ContentArea extends StatelessWidget {
             style: Theme.of(context).textTheme.headline2,
           ),
           SizedBox(height: 8),
-          ListView(
-            shrinkWrap: true,
-            children: [
-              Row(
-                children: [
-                  TaskDetails(
-                    title: '1',
-                    description: 'Sesion(es) Aperturada(s)',
-                  ),
-                  SizedBox(width: 16),
-                  TaskDetails(
-                    title: '1',
-                    description: 'Sesion(es) Actual(es)',
-                  ),
-                  SizedBox(width: 16),
-                  TaskDetails(
-                    title: '0',
-                    description: 'Sesion(es) Completadas',
-                  ),
-                ],
-              ),
-            ],
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                TaskDetails(
+                  title: '1',
+                  description: 'Sesion(es) Aperturada(s)',
+                ),
+                SizedBox(width: 16),
+                TaskDetails(
+                  title: '1',
+                  description: 'Sesion(es) Actual(es)',
+                ),
+                SizedBox(width: 16),
+                TaskDetails(
+                  title: '0',
+                  description: 'Sesion(es) Completadas',
+                ),
+              ],
+            ),
           ),
+
+
           SizedBox(height: 16),
-          Text(
-            'Sesiones después',
-            style: Theme.of(context).textTheme.headline2,
-          ),
-          SizedBox(height: 8),
-          ListView(
-            shrinkWrap: true,
-            children: [
-              ListContainer(
-                title: 'Sesión 01',
-                description: '10 de mayo de 2024',
-                date: 'Introducción al curso',
-                isCompleted: false,
-              ),
-              ListContainer(
-                title: 'Sesión 02',
-                description: '15 de mayo de 2024',
-                date: 'El mundo antiguo',
-                isCompleted: false,
-              ),
-              ListContainer(
-                title: 'Sesión 03',
-                description: '20 de mayo de 2024',
-                date: 'Exploración y descubrimientos',
-                isCompleted: false,
-              ),
-              ListContainer(
-                title: 'Sesión 04',
-                description: '25 de mayo de 2024',
-                date: 'La era de las revoluciones',
-                isCompleted: false,
-              ),
-              ListContainer(
-                title: 'Sesión 05',
-                description: '30 de mayo de 2024',
-                date: 'La Primera Guerra Mundial',
-                isCompleted: false,
-              ),
-            ],
-          ),
+      Text(
+        'Sesiones después',
+        style: Theme.of(context).textTheme.headline2,
+      ),
+      SizedBox(height: 8),
+      ListContainer(
+        title: 'Sesión 01',
+        description: '10 de mayo de 2024',
+        date: 'Introducción al curso',
+        isCompleted: false,
+        tareasPage: Sesion1HyG(), // Navegará a Sesion1Page
+      ),
+      ListContainer(
+        title: 'Sesión 02',
+        description: '15 de mayo de 2024',
+        date: 'El mundo antiguo',
+        isCompleted: false,
+        tareasPage: Sesion2HyG(), // Navegará a Sesion2Page
+      ),
+      ListContainer(
+        title: 'Sesión 03',
+        description: '20 de mayo de 2024',
+        date: 'Exploración y descubrimientos',
+        isCompleted: false,
+        tareasPage: Sesion3HyG(), // Navegará a Sesion3Page
+      ),
+      ListContainer(
+        title: 'Sesión 04',
+        description: '25 de mayo de 2024',
+        date: 'La era de las revoluciones',
+        isCompleted: false,
+        tareasPage: Sesion4HyG(), // Placeholder, agregar la página de tareas correspondiente
+      ),
+      ListContainer(
+        title: 'Sesión 05',
+        description: '30 de mayo de 2024',
+        date: 'La Primera Guerra Mundial',
+        isCompleted: false,
+        tareasPage: Sesion5HyG(), // Placeholder, agregar la página de tareas correspondiente
+      ),
+
+
         ],
       ),
     );
@@ -192,9 +201,16 @@ class ListContainer extends StatefulWidget {
   final String title;
   final String description;
   final String date;
+  final Widget? tareasPage;
   bool isCompleted;
 
-  ListContainer({required this.title, required this.description, required this.date, this.isCompleted = false});
+  ListContainer({
+    required this.title,
+    required this.description,
+    required this.date,
+    this.isCompleted = false,
+    this.tareasPage,
+  });
 
   @override
   _ListContainerState createState() => _ListContainerState();
@@ -247,103 +263,25 @@ class _ListContainerState extends State<ListContainer> {
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all<Color>(Colors.red), // Color de fondo del botón
             ),
-            onPressed: () async {
+            onPressed: widget.tareasPage != null
+                ? () async {
               bool completed = await Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => TareasPage()),
+                MaterialPageRoute(builder: (context) => widget.tareasPage!),
               );
               if (completed != null && completed) {
                 setState(() {
                   widget.isCompleted = true;
                 });
               }
-            },
+            }
+                : null,
             child: Text(
               'Ir a Tareas',
               style: TextStyle(color: Colors.white), // Color del texto blanco
             ),
           ),
-
-
-
         ],
-      ),
-    );
-  }
-}
-
-class TareasPage extends StatefulWidget {
-  @override
-  _TareasPageState createState() => _TareasPageState();
-}
-
-class _TareasPageState extends State<TareasPage> {
-  bool task1Completed = false;
-  bool task2Completed = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Tareas'),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pop(context, false);
-          },
-        ),
-      ),
-      body: Padding(
-        padding: EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Tarea 1',
-              style: Theme.of(context).textTheme.headline3,
-            ),
-            SizedBox(height: 8),
-            Text(
-              'Pregunta: ¿Cuál fue el impacto de la Revolución Francesa en Europa?',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-            TextField(
-              onChanged: (text) {
-                setState(() {
-                  task1Completed = text.isNotEmpty;
-                });
-              },
-              decoration: InputDecoration(hintText: 'Escribe tu respuesta aquí'),
-            ),
-            SizedBox(height: 16),
-            Text(
-              'Tarea 2',
-              style: Theme.of(context).textTheme.headline3,
-            ),
-            SizedBox(height: 8),
-            Text(
-              'Pregunta: Describe las principales características de la geografía física de América del Sur.',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-            TextField(
-              onChanged: (text) {
-                setState(() {
-                  task2Completed = text.isNotEmpty;
-                });
-              },
-              decoration: InputDecoration(hintText: 'Escribe tu respuesta aquí'),
-            ),
-            SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: task1Completed && task2Completed
-                  ? () {
-                Navigator.pop(context, true);
-              }
-                  : null,
-              child: Text('Enviar Tareas'),
-            ),
-          ],
-        ),
       ),
     );
   }

@@ -109,7 +109,7 @@ class _LoginPageState extends State<LoginPage> {
                         fontFamily: 'Roboto',
                         fontWeight: FontWeight.bold,
                         color: Color(0xFFFFEFD5),
-                        fontSize: 40,
+                        fontSize: 35,
                         letterSpacing: 0,
                       ),
                     ),
