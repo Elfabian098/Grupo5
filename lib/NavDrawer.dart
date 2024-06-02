@@ -27,7 +27,7 @@ class NavDrawer extends StatelessWidget {
               children: [
                 DrawerHeader(
                   decoration: BoxDecoration(
-                    color: Color(0xFFAA382E),
+                    color: Color(0xFF580001),
                   ),
                   child: Center(
                     child: Column(
@@ -39,15 +39,18 @@ class NavDrawer extends StatelessWidget {
                             children: [
                               Padding(
                                 padding: EdgeInsets.all(8.0),
-                                child: CircleAvatar(
-                                  backgroundImage: AssetImage('assets/dora_mayer.jpg'), // Ruta de la imagen
-                                  radius: 20, // Tamaño del avatar
+                                child: Image.asset(
+                                  'assets/doramayer2.jpg', // Ruta de la imagen
+                                  width: 50, // Ancho deseado
+                                  height: 50, // Alto deseado
+                                  fit: BoxFit.cover, // Cómo ajustar la imagen
                                 ),
                               ),
                               Text(
                                 "I. E. DORA MAYER",
                                 style: TextStyle(
                                   color: Colors.white,
+                                  fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
                               ),
@@ -81,8 +84,14 @@ class NavDrawer extends StatelessWidget {
                   ),
                 ),
                 ListTile(
-                  title: Text("Inicio"),
-                  leading: Icon(Icons.home),
+                  title: Text(
+                    "Inicio",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold, // Hace el texto más grueso
+                      fontSize: 16, // Ajusta el tamaño del texto si es necesario
+                    ),
+                  ),
+                  leading: Icon(Icons.home_rounded),
                   onTap: () {
                     Navigator.of(context).pop();
                     Navigator.of(context).push(MaterialPageRoute(
@@ -93,7 +102,13 @@ class NavDrawer extends StatelessWidget {
                   color: Colors.grey,
                 ),
                 ListTile(
-                  title: Text("Perfil"),
+                  title: Text(
+                    "Perfil",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold, // Hace el texto más grueso
+                      fontSize: 16, // Ajusta el tamaño del texto si es necesario
+                    ),
+                  ),
                   leading: Icon(Icons.account_circle),
                   onTap: () {
                     Navigator.of(context).pop();
@@ -101,24 +116,19 @@ class NavDrawer extends StatelessWidget {
                         builder: (BuildContext context) => MyPerfilWidget()));
                   },
                 ),
+
                 Divider(
                   color: Colors.grey,
                 ),
                 ListTile(
-                  title: Text("Contacto"),
-                  leading: Icon(Icons.contact_page),
-                  onTap: () {
-                    Navigator.of(context).pop();
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (BuildContext context) => Contacto()));
-                  },
-                ),
-                Divider(
-                  color: Colors.grey,
-                ),
-                ListTile(
-                  title: Text("Lista de Cursos"),
-                  leading: Icon(Icons.school),
+                  title: Text(
+                    "Lista de Cursos",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold, // Hace el texto más grueso
+                      fontSize: 16, // Ajusta el tamaño del texto si es necesario
+                    ),
+                  ),
+                  leading: Icon(Icons.library_books),
                   onTap: () {
                     Navigator.of(context).pop();
                     Navigator.of(context).push(MaterialPageRoute(
@@ -129,8 +139,32 @@ class NavDrawer extends StatelessWidget {
                   color: Colors.grey,
                 ),
                 ListTile(
-                  title: Text("Salir"),
-                  leading: Icon(Icons.exit_to_app),
+                  title: Text(
+                    "Contacto",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold, // Hace el texto más grueso
+                      fontSize: 16, // Ajusta el tamaño del texto si es necesario
+                    ),
+                  ),
+                  leading: Icon(Icons.contact_page_rounded),
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (BuildContext context) => Contacto()));
+                  },
+                ),
+                Divider(
+                  color: Colors.grey,
+                ),
+                ListTile(
+                  title: Text(
+                    "Salir",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold, // Hace el texto más grueso
+                      fontSize: 16, // Ajusta el tamaño del texto si es necesario
+                    ),
+                  ),
+                  leading: Icon(Icons.exit_to_app_rounded),
                   onTap: () {
                     Navigator.of(context).pop();
                     Navigator.of(context).push(MaterialPageRoute(
@@ -145,6 +179,5 @@ class NavDrawer extends StatelessWidget {
     );
   }
 }
-
 
 

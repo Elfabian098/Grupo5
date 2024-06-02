@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'SplashScreen2.dart'; // Asegúrate de que este import sea correcto
+import 'SplashScreen2.dart';
+import 'package:guia5/SplashScreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LoginPage(), // Cambia el home a LoginPage
+      home: SplashScreen(), // Cambia el home a LoginPage
     );
   }
 }
@@ -79,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
         height: double.infinity,
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color(0xFF941301), Color(0xFF9B2119)],
+            colors: [Color(0xFF580001), Color(0xFF9B2119)],
             stops: [0, 1],
             begin: AlignmentDirectional(0.87, -1),
             end: AlignmentDirectional(-0.87, 1),
@@ -105,9 +106,10 @@ class _LoginPageState extends State<LoginPage> {
                     child: Text(
                       'I. E. DORA MAYER',
                       style: TextStyle(
-                        fontFamily: 'Outfit',
-                        color: Color(0xFFFFFFFF),
-                        fontSize: 36,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xFFFFEFD5),
+                        fontSize: 40,
                         letterSpacing: 0,
                       ),
                     ),
@@ -157,7 +159,7 @@ class _LoginPageState extends State<LoginPage> {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontFamily: 'Plus Jakarta Sans',
-                                color: Color(0xFFE7EDF1),
+                                color: Color(0xFF888888),
                                 fontSize: 16,
                                 fontWeight: FontWeight.w500,
                               ),
@@ -310,7 +312,7 @@ class _LoginPageState extends State<LoginPage> {
                                 height: 44,
                                 alignment: Alignment.center,
                                 child: Text(
-                                  'INICIA SESIÓN',
+                                  'INICIAR SESIÓN',
                                   style: TextStyle(
                                     fontFamily: 'Plus Jakarta Sans',
                                     color: Colors.white,

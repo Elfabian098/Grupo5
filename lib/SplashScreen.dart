@@ -31,8 +31,8 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Center(
         child: Image.asset(
           'assets/doramayer.jpg', // Ruta de la imagen en tu carpeta assets
-          width: 1000, // Ancho deseado de la imagen
-          height: 1000, // Alto deseado de la imagen
+          width: 500, // Ancho deseado de la imagen
+          height: 500, // Alto deseado de la imagen
           // Ajusta el fit según tus necesidades
           // BoxFit.cover: la imagen se ajusta para cubrir el área de visualización
           // BoxFit.contain: la imagen se ajusta dentro del área de visualización

@@ -19,8 +19,6 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future<bool> _onWillPop() async {
-    // Aquí puedes personalizar el comportamiento del botón "Atrás"
-    // Por ejemplo, mostrar un diálogo de confirmación para salir de la aplicación
     return (await showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -46,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return WillPopScope(
       onWillPop: _onWillPop,
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xFFFFFFFF),
         appBar: AppBar(
           title: Text(
             widget.title,
@@ -56,13 +54,55 @@ class _MyHomePageState extends State<MyHomePage> {
               fontWeight: FontWeight.bold,
             ),
           ),
+          backgroundColor: Color(0xFF580001), // Cambia el color de la barra de notificaciones
+          actions: [
+            IconButton(
+              icon: Icon(Icons.notifications),
+              onPressed: () {
+                // Implementa la lógica para activar las notificaciones
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.add_alert),
+              onPressed: () {
+                // Implementa la lógica para recordar al usuario
+              },
+            ),
+          ],
         ),
-        body: Center(
-          child: Container(
-            width: 320,
-            height: 320,
-            color: Colors.white,
-            child: Image.asset('assets/doramayer.jpg'),
+        body: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                width: 320,
+                height: 320,
+                color: Colors.white,
+                child: Image.asset('assets/doramayer.jpg'),
+              ),
+              SizedBox(height: 20),
+              Text(
+                'Dora Mayer',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Text(
+                'Dora Mayer fue una educadora apasionada y visionaria que dedicó su vida al servicio de la educación y el desarrollo de la juventud. Con una visión centrada en la excelencia académica y la formación integral de sus estudiantes, Dora Mayer fundó la Institución Educativa Dora Mayer con el objetivo de brindar una educación de calidad que inspire, motive y empodere a las generaciones futuras. '
+                    'Nuestra institución, inspirada en los valores de integridad, excelencia y servicio, se esfuerza por proporcionar un ambiente de aprendizaje enriquecedor y estimulante donde cada estudiante pueda alcanzar su máximo potencial. '
+                    'Con un enfoque en el desarrollo personal, académico y social, Dora Mayer ofrece una amplia gama de oportunidades educativas y extracurriculares que fomentan el crecimiento holístico de nuestros alumnos. '
+                    'En Dora Mayer, nos comprometemos a cultivar líderes del mañana, ciudadanos responsables y agentes de cambio positivo en sus comunidades. '
+                    'Con un equipo de educadores dedicados y un entorno de aprendizaje innovador, estamos preparando a nuestros estudiantes para enfrentar los desafíos del mundo moderno y hacer una diferencia significativa en el mundo que los rodea. '
+                    'Únete a nosotros en nuestra misión de inspirar el aprendizaje, fomentar la excelencia y empoderar a cada estudiante para alcanzar sus sueños y aspiraciones más altas. '
+                    'Juntos, estamos construyendo un futuro brillante para la próxima generación.',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 16,
+                ),
+              ),
+              // Agrega más información sobre Dora Mayer u otras cosas relevantes aquí
+            ],
           ),
         ),
         drawer: NavDrawer(),

@@ -13,7 +13,7 @@ class ListaCursos extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.grey,
+        backgroundColor: Color(0xFF580001),
         title: Text("Lista Cursos", style: TextStyle(color: Colors.white)),
       ),
       drawer: NavDrawer(),
@@ -21,7 +21,7 @@ class ListaCursos extends StatelessWidget {
           child: Center(child: Column(
           children: [
              Container(
-              color: Color(0xFF862A22), // Color de fondo para el contenedor externo
+              color: Color(0xBDB9B9B9), // Color de fondo para el contenedor externo
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -29,7 +29,7 @@ class ListaCursos extends StatelessWidget {
                     margin: EdgeInsets.all(8.0),
                     decoration: BoxDecoration(
                       color: Color(0xFFFFFFFF),
-                      border: Border.all(color: Colors.grey),
+                      border: Border.all(color: Colors.black),
                       borderRadius: BorderRadius.circular(15.0),
                     ),
                     child: Row(
@@ -86,7 +86,7 @@ class ListaCursos extends StatelessWidget {
                     margin: EdgeInsets.all(8.0),
                     decoration: BoxDecoration(
                       color: Color(0xFFFFFFFF),
-                      border: Border.all(color: Colors.grey),
+                      border: Border.all(color: Colors.black),
                       borderRadius: BorderRadius.circular(15.0),
                     ),
                     child: Row(
@@ -143,7 +143,7 @@ class ListaCursos extends StatelessWidget {
                     margin: EdgeInsets.all(8.0),
                     decoration: BoxDecoration(
                       color: Color(0xFFFFFFFF),
-                      border: Border.all(color: Colors.grey),
+                      border: Border.all(color: Colors.black),
                       borderRadius: BorderRadius.circular(15.0),
                     ),
                     child: Row(
@@ -200,7 +200,7 @@ class ListaCursos extends StatelessWidget {
                     margin: EdgeInsets.all(8.0),
                     decoration: BoxDecoration(
                       color: Color(0xFFFFFFFF),
-                      border: Border.all(color: Colors.grey),
+                      border: Border.all(color: Colors.black),
                       borderRadius: BorderRadius.circular(15.0),
                     ),
                     child: Row(
@@ -257,7 +257,7 @@ class ListaCursos extends StatelessWidget {
                     margin: EdgeInsets.all(8.0),
                     decoration: BoxDecoration(
                       color: Color(0xFFFFFFFF),
-                      border: Border.all(color: Colors.grey),
+                      border: Border.all(color: Colors.black),
                       borderRadius: BorderRadius.circular(15.0),
                     ),
                     child: Row(
@@ -314,7 +314,7 @@ class ListaCursos extends StatelessWidget {
                     margin: EdgeInsets.all(8.0),
                     decoration: BoxDecoration(
                       color: Color(0xFFFFFFFF),
-                      border: Border.all(color: Colors.grey),
+                      border: Border.all(color: Colors.black),
                       borderRadius: BorderRadius.circular(15.0),
                     ),
                     child: Row(
@@ -371,7 +371,7 @@ class ListaCursos extends StatelessWidget {
                     margin: EdgeInsets.all(8.0),
                     decoration: BoxDecoration(
                       color: Color(0xFFFFFFFF),
-                      border: Border.all(color: Colors.grey),
+                      border: Border.all(color: Colors.black),
                       borderRadius: BorderRadius.circular(15.0),
                     ),
                     child: Row(
