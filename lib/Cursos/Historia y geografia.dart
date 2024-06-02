@@ -16,7 +16,7 @@ class His_Geo extends StatelessWidget {
       title: 'Mi Aplicación',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.blueGrey,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         textTheme: TextTheme(
           headline1: TextStyle(fontSize: 28, fontWeight: FontWeight.w900, color: Colors.black),
