@@ -21,7 +21,7 @@ class His_Geo extends StatelessWidget {
         textTheme: TextTheme(
           headline1: TextStyle(fontSize: 28, fontWeight: FontWeight.w900, color: Colors.black),
           headline2: TextStyle(fontSize: 22, fontWeight: FontWeight.w500, color: Color(0xFF9B0002)),
-          headline3: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xFF580001)),
+          headline3: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xFF000000)),
           headline4: TextStyle(fontSize: 16, color: Colors.black),
           bodyText1: TextStyle(fontSize: 14, fontStyle: FontStyle.italic, color: Colors.grey[600]),
         ),
@@ -36,8 +36,7 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Regresar',
+        title: Text('Regresar',
           style: TextStyle(color: Colors.white), // Color del texto blanco
         ),
         backgroundColor: Color(0xFF580001), // Cambia el color del AppBar a rojo
@@ -305,7 +304,7 @@ class _ListContainerState extends State<ListContainer> {
               ),
               if (widget.isCompleted)
                 Container(
-                  padding: EdgeInsets.all(8),
+                  padding: EdgeInsets.all(5),
                   decoration: BoxDecoration(
                     color: Color(0xFF00A411),
                     borderRadius: BorderRadius.circular(10), // Define el radio de borde para redondear los bordes
@@ -349,7 +348,7 @@ class _ListContainerState extends State<ListContainer> {
             }
                 : null,
             child: Text(
-              'Ir a Tareas',
+              'Ir a tareas',
               style: TextStyle(color: Colors.white), // Color del texto blanco
             ),
           ),

@@ -108,9 +108,11 @@ class _Sesion1HyGState extends State<Sesion1HyG> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tareas de la Sesión 1'),
+        title: Text('Tareas de la Sesión 1',
+          style: TextStyle(color: Colors.white),),
+        backgroundColor: Color(0xFF580001),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
             // Return the user's answers to the previous screen
             Navigator.pop(context, true);
@@ -131,25 +133,44 @@ class _Sesion1HyGState extends State<Sesion1HyG> {
               children: [
                 Text(
                   'Pregunta $questionNumber',
-                  style: Theme.of(context).textTheme.headline6,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold, // Establece el texto en negrita
+                    fontSize: 22, // Tamaño de fuente opcional
+                  ),
                 ),
+
                 SizedBox(height: 8),
                 Text(
                   question,
-                  style: Theme.of(context).textTheme.subtitle1,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold, // Establece el texto en negrita
+                    fontSize: 18, // Tamaño de fuente opcional
+                  ),
                 ),
+
                 SizedBox(height: 8),
                 // Display options as radio buttons
                 ...options.map((option) {
                   return RadioListTile<String>(
-                    title: Text(option),
+                    title: Text(
+                      option,
+                      style: TextStyle(
+                        fontFamily: 'Roboto', // Cambia la fuente a Roboto
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                        fontStyle: FontStyle.normal, // Asegura que no haya cursiva
+                      ),
+                    ),
                     value: option,
                     groupValue: userAnswers[questionNumber],
+                    activeColor: Colors.blue,
                     onChanged: (String? value) {
                       handleAnswer(questionNumber, value!);
                     },
                   );
                 }).toList(),
+
+
                 SizedBox(height: 16),
               ],
             );
@@ -158,8 +179,15 @@ class _Sesion1HyGState extends State<Sesion1HyG> {
       ),
       floatingActionButton: ElevatedButton(
         onPressed: areAllQuestionsAnswered() ? verifyAnswers : null,
-        child: Text('Verificar'),
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Color(0xFFB90000), // Cambia el color de fondo del botón flotante a azul
+        ),
+        child: Text(
+          'Verificar',
+          style: TextStyle(color: Colors.white),
+        ),
       ),
+
     );
   }
 }
