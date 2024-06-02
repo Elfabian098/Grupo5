@@ -97,12 +97,12 @@ class ContentArea extends StatelessWidget {
             child: Row(
               children: [
                 TaskDetails(
-                  title: '1',
+                  title: '5',
                   description: 'Sesion(es) Aperturada(s)',
                 ),
                 SizedBox(width: 16),
                 TaskDetails(
-                  title: '1',
+                  title: '5',
                   description: 'Sesion(es) Actual(es)',
                 ),
                 SizedBox(width: 16),

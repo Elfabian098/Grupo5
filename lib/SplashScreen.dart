@@ -15,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 3), () {
+    Timer(Duration(seconds: 2), () {
       // Navega a la pantalla de inicio de sesión después de 3 segundos
       Navigator.pushReplacement(
         context,

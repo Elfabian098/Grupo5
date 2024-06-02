@@ -80,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
         height: double.infinity,
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color(0xFF580001), Color(0xFF9B2119)],
+            colors: [Color(0xFF580001), Color(0xFF580001)],
             stops: [0, 1],
             begin: AlignmentDirectional(0.87, -1),
             end: AlignmentDirectional(-0.87, 1),
@@ -132,7 +132,7 @@ class _LoginPageState extends State<LoginPage> {
                         offset: Offset(0, 2),
                       )
                     ],
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(30),
                   ),
                   child: Align(
                     alignment: AlignmentDirectional(0, 0),

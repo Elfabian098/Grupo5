@@ -122,7 +122,7 @@ class _Sesion1HyGState extends State<Sesion1HyG> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Tarea $questionNumber',
+                  'Pregunta $questionNumber',
                   style: Theme.of(context).textTheme.headline6,
                 ),
                 SizedBox(height: 8),
