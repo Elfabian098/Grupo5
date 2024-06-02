@@ -30,7 +30,7 @@ class ListaCursos extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: Color(0xFFFFFFFF),
                       border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(15.0),
+                      borderRadius: BorderRadius.circular(20),
                     ),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -87,7 +87,7 @@ class ListaCursos extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: Color(0xFFFFFFFF),
                       border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(15.0),
+                      borderRadius: BorderRadius.circular(20),
                     ),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -144,7 +144,7 @@ class ListaCursos extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: Color(0xFFFFFFFF),
                       border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(15.0),
+                      borderRadius: BorderRadius.circular(20),
                     ),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -201,7 +201,7 @@ class ListaCursos extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: Color(0xFFFFFFFF),
                       border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(15.0),
+                      borderRadius: BorderRadius.circular(20),
                     ),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -258,7 +258,7 @@ class ListaCursos extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: Color(0xFFFFFFFF),
                       border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(15.0),
+                      borderRadius: BorderRadius.circular(20),
                     ),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -315,7 +315,7 @@ class ListaCursos extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: Color(0xFFFFFFFF),
                       border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(15.0),
+                      borderRadius: BorderRadius.circular(20),
                     ),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -372,7 +372,7 @@ class ListaCursos extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: Color(0xFFFFFFFF),
                       border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(15.0),
+                      borderRadius: BorderRadius.circular(20),
                     ),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,

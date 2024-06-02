@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:guia5/ListaCursos.dart';
 import 'package:guia5/Preguntas/PreguntasHyG/Sesion1HyG.dart';
 import 'package:guia5/Preguntas/PreguntasHyG/Sesion2HyG.dart';
@@ -19,8 +20,8 @@ class His_Geo extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         textTheme: TextTheme(
           headline1: TextStyle(fontSize: 28, fontWeight: FontWeight.w900, color: Colors.black),
-          headline2: TextStyle(fontSize: 22, fontWeight: FontWeight.w500, color: Colors.black),
-          headline3: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.blue),
+          headline2: TextStyle(fontSize: 22, fontWeight: FontWeight.w500, color: Color(0xFF9B0002)),
+          headline3: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xFF580001)),
           headline4: TextStyle(fontSize: 16, color: Colors.black),
           bodyText1: TextStyle(fontSize: 14, fontStyle: FontStyle.italic, color: Colors.grey[600]),
         ),
@@ -35,9 +36,13 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Regresar'),
+        title: Text(
+          'Regresar',
+          style: TextStyle(color: Colors.white), // Color del texto blanco
+        ),
+        backgroundColor: Color(0xFF580001), // Cambia el color del AppBar a rojo
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: Icon(Icons.arrow_back, color: Colors.white), // Color del icono blanco
           onPressed: () {
             Navigator.push(
               context,
@@ -46,6 +51,8 @@ class MyHomePage extends StatelessWidget {
           },
         ),
       ),
+
+
       body: SingleChildScrollView(
         child: ContentArea(),
       ),
@@ -53,7 +60,68 @@ class MyHomePage extends StatelessWidget {
   }
 }
 
-class ContentArea extends StatelessWidget {
+class ContentArea extends StatefulWidget {
+  @override
+  _ContentAreaState createState() => _ContentAreaState();
+}
+
+class _ContentAreaState extends State<ContentArea> {
+  late Future<void> _loadSessionStatus;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadSessionStatus = _loadAllSessionStatus();
+  }
+
+  Future<void> _loadAllSessionStatus() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      for (int i = 1; i <= 5; i++) {
+        final isCompleted = prefs.getBool('sesion${i}Completed') ?? false;
+        _sessions[i - 1]['isCompleted'] = isCompleted;
+      }
+    });
+  }
+
+  final List<Map<String, dynamic>> _sessions = [
+    {
+      'title': 'Sesión 01',
+      'description': '10 de mayo de 2024',
+      'date': 'Introducción al curso',
+      'isCompleted': false,
+      'tareasPage': Sesion1HyG(),
+    },
+    {
+      'title': 'Sesión 02',
+      'description': '15 de mayo de 2024',
+      'date': 'El mundo antiguo',
+      'isCompleted': false,
+      'tareasPage': Sesion2HyG(),
+    },
+    {
+      'title': 'Sesión 03',
+      'description': '20 de mayo de 2024',
+      'date': 'Exploración y descubrimientos',
+      'isCompleted': false,
+      'tareasPage': Sesion3HyG(),
+    },
+    {
+      'title': 'Sesión 04',
+      'description': '25 de mayo de 2024',
+      'date': 'La era de las revoluciones',
+      'isCompleted': false,
+      'tareasPage': Sesion4HyG(),
+    },
+    {
+      'title': 'Sesión 05',
+      'description': '30 de mayo de 2024',
+      'date': 'La Primera Guerra Mundial',
+      'isCompleted': false,
+      'tareasPage': Sesion5HyG(),
+    },
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -88,7 +156,7 @@ class ContentArea extends StatelessWidget {
           ),
           SizedBox(height: 16),
           Text(
-            'Un resumen de su curso',
+            'Resumen de sesiones',
             style: Theme.of(context).textTheme.headline2,
           ),
           SizedBox(height: 8),
@@ -98,66 +166,47 @@ class ContentArea extends StatelessWidget {
               children: [
                 TaskDetails(
                   title: '5',
-                  description: 'Sesion(es) Aperturada(s)',
+                  description: 'Sesiones Aperturadas',
                 ),
                 SizedBox(width: 16),
                 TaskDetails(
                   title: '5',
-                  description: 'Sesion(es) Actual(es)',
+                  description: 'Sesiones Actuales',
                 ),
                 SizedBox(width: 16),
                 TaskDetails(
                   title: '0',
-                  description: 'Sesion(es) Completadas',
+                  description: 'Sesiones Completadas',
                 ),
               ],
             ),
           ),
-
-
           SizedBox(height: 16),
-      Text(
-        'Sesiones después',
-        style: Theme.of(context).textTheme.headline2,
-      ),
-      SizedBox(height: 8),
-      ListContainer(
-        title: 'Sesión 01',
-        description: '10 de mayo de 2024',
-        date: 'Introducción al curso',
-        isCompleted: false,
-        tareasPage: Sesion1HyG(), // Navegará a Sesion1Page
-      ),
-      ListContainer(
-        title: 'Sesión 02',
-        description: '15 de mayo de 2024',
-        date: 'El mundo antiguo',
-        isCompleted: false,
-        tareasPage: Sesion2HyG(), // Navegará a Sesion2Page
-      ),
-      ListContainer(
-        title: 'Sesión 03',
-        description: '20 de mayo de 2024',
-        date: 'Exploración y descubrimientos',
-        isCompleted: false,
-        tareasPage: Sesion3HyG(), // Navegará a Sesion3Page
-      ),
-      ListContainer(
-        title: 'Sesión 04',
-        description: '25 de mayo de 2024',
-        date: 'La era de las revoluciones',
-        isCompleted: false,
-        tareasPage: Sesion4HyG(), // Placeholder, agregar la página de tareas correspondiente
-      ),
-      ListContainer(
-        title: 'Sesión 05',
-        description: '30 de mayo de 2024',
-        date: 'La Primera Guerra Mundial',
-        isCompleted: false,
-        tareasPage: Sesion5HyG(), // Placeholder, agregar la página de tareas correspondiente
-      ),
-
-
+          Text(
+            'Unidades',
+            style: Theme.of(context).textTheme.headline2,
+          ),
+          SizedBox(height: 8),
+          FutureBuilder<void>(
+            future: _loadSessionStatus,
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return CircularProgressIndicator();
+              } else {
+                return Column(
+                  children: _sessions.map((session) {
+                    return ListContainer(
+                      title: session['title'],
+                      description: session['description'],
+                      date: session['date'],
+                      isCompleted: session['isCompleted'],
+                      tareasPage: session['tareasPage'],
+                    );
+                  }).toList(),
+                );
+              }
+            },
+          ),
         ],
       ),
     );
@@ -176,9 +225,14 @@ class TaskDetails extends StatelessWidget {
       padding: EdgeInsets.all(8),
       margin: EdgeInsets.only(bottom: 8),
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey),
-        borderRadius: BorderRadius.circular(8),
+        border: Border.all(
+          color: Colors.black,
+          width: 1.2, // Ancho del borde, puedes ajustarlo según tus necesidades
+        ),
+        borderRadius: BorderRadius.circular(20),
+        color: Colors.white,
       ),
+
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -217,16 +271,28 @@ class ListContainer extends StatefulWidget {
 }
 
 class _ListContainerState extends State<ListContainer> {
+  Future<void> _markSessionAsCompleted() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('${widget.title.replaceAll(' ', '').toLowerCase()}Completed', true);
+    setState(() {
+      widget.isCompleted = true;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(8),
       margin: EdgeInsets.only(bottom: 16),
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey),
-        borderRadius: BorderRadius.circular(8),
+        border: Border.all(
+          color: Colors.black,
+          width: 1.3, // Ancho del borde, puedes ajustarlo según tus necesidades
+        ),
+        borderRadius: BorderRadius.circular(20),
         color: Colors.white,
       ),
+
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -240,12 +306,20 @@ class _ListContainerState extends State<ListContainer> {
               if (widget.isCompleted)
                 Container(
                   padding: EdgeInsets.all(8),
-                  color: Colors.green,
+                  decoration: BoxDecoration(
+                    color: Color(0xFF00A411),
+                    borderRadius: BorderRadius.circular(10), // Define el radio de borde para redondear los bordes
+                    border: Border.all( // Define las propiedades del borde
+                      color: Colors.black, // Define el color del borde
+                      width: 0.5, // Define el ancho del borde
+                    ),
+                  ),
                   child: Text(
-                    'REALIZADO',
+                    'Realizado',
                     style: TextStyle(color: Colors.white),
                   ),
                 ),
+
             ],
           ),
           SizedBox(height: 4),
@@ -261,18 +335,16 @@ class _ListContainerState extends State<ListContainer> {
           SizedBox(height: 8),
           ElevatedButton(
             style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all<Color>(Colors.red), // Color de fondo del botón
+              backgroundColor: MaterialStateProperty.all<Color>(Color(0xFFB90000)), // Color de fondo del botón
             ),
             onPressed: widget.tareasPage != null
                 ? () async {
-              bool completed = await Navigator.push(
+              bool? completed = await Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => widget.tareasPage!),
               );
               if (completed != null && completed) {
-                setState(() {
-                  widget.isCompleted = true;
-                });
+                await _markSessionAsCompleted();
               }
             }
                 : null,

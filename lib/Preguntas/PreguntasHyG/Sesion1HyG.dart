@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:guia5/Cursos/Historia%20y%20geografia.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Sesion1HyG extends StatefulWidget {
@@ -40,14 +41,14 @@ class _Sesion1HyGState extends State<Sesion1HyG> {
   // Method to handle user's answer selection
   void handleAnswer(int questionNumber, String answer) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setString('userAnswer_$questionNumber', answer);
+    await prefs.setString('userAnswer_$questionNumber', answer);
     setState(() {
       userAnswers[questionNumber] = answer;
     });
   }
 
   // Method to verify answers
-  void verifyAnswers() {
+  void verifyAnswers() async {
     int correctCount = 0;
     userAnswers.forEach((questionNumber, userAnswer) {
       String correctAnswer = correctAnswers[questionNumber]!;
@@ -55,6 +56,10 @@ class _Sesion1HyGState extends State<Sesion1HyG> {
         correctCount++;
       }
     });
+
+    // Save session as completed
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('sesion1Completed', true);
 
     // Show dialog with result
     showDialog(
@@ -74,6 +79,12 @@ class _Sesion1HyGState extends State<Sesion1HyG> {
         );
       },
     );
+
+  }
+
+  // Check if all questions are answered
+  bool areAllQuestionsAnswered() {
+    return userAnswers.length == correctAnswers.length;
   }
 
   @override
@@ -90,11 +101,8 @@ class _Sesion1HyGState extends State<Sesion1HyG> {
       },
       {
         'question': '¿En qué año comenzó la Revolución Francesa?',
-        'options': [
-          'a) 1776', 'b) 1789', 'c) 1804', 'd) 1812'],
-
+        'options': ['a) 1776', 'b) 1789', 'c) 1804', 'd) 1812']
       },
-
       // Add more questions and options here
     ];
 
@@ -105,7 +113,7 @@ class _Sesion1HyGState extends State<Sesion1HyG> {
           icon: Icon(Icons.arrow_back),
           onPressed: () {
             // Return the user's answers to the previous screen
-            Navigator.pop(context, userAnswers);
+            Navigator.pop(context, true);
           },
         ),
       ),
@@ -115,7 +123,7 @@ class _Sesion1HyGState extends State<Sesion1HyG> {
           itemCount: questions.length,
           itemBuilder: (context, index) {
             int questionNumber = index + 1;
-            String question = questions[index]['question']!;
+            String question = questions[index]['question'];
             List<String> options = List<String>.from(questions[index]['options'] as List<dynamic>);
 
             return Column(
@@ -148,10 +156,9 @@ class _Sesion1HyGState extends State<Sesion1HyG> {
           },
         ),
       ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: verifyAnswers,
-        label: Text('Verificar'),
-        icon: Icon(Icons.check),
+      floatingActionButton: ElevatedButton(
+        onPressed: areAllQuestionsAnswered() ? verifyAnswers : null,
+        child: Text('Verificar'),
       ),
     );
   }

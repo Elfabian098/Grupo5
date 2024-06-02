@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'DORA MAYER',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        iconTheme: IconThemeData(color: Colors.white),
       ),
       home: SplashScreen(), // Cambia el home a LoginPage
     );

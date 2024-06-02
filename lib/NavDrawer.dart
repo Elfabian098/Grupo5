@@ -91,7 +91,7 @@ class NavDrawer extends StatelessWidget {
                       fontSize: 16, // Ajusta el tamaño del texto si es necesario
                     ),
                   ),
-                  leading: Icon(Icons.home_rounded),
+                  leading: Icon(Icons.home_rounded, color: Colors.black),
                   onTap: () {
                     Navigator.of(context).pop();
                     Navigator.of(context).push(MaterialPageRoute(
@@ -99,7 +99,7 @@ class NavDrawer extends StatelessWidget {
                   },
                 ),
                 Divider(
-                  color: Colors.grey,
+                  color: Colors.black,
                 ),
                 ListTile(
                   title: Text(
@@ -109,7 +109,7 @@ class NavDrawer extends StatelessWidget {
                       fontSize: 16, // Ajusta el tamaño del texto si es necesario
                     ),
                   ),
-                  leading: Icon(Icons.account_circle),
+                  leading: Icon(Icons.account_circle, color: Colors.black),
                   onTap: () {
                     Navigator.of(context).pop();
                     Navigator.of(context).push(MaterialPageRoute(
@@ -118,7 +118,7 @@ class NavDrawer extends StatelessWidget {
                 ),
 
                 Divider(
-                  color: Colors.grey,
+                  color: Colors.black,
                 ),
                 ListTile(
                   title: Text(
@@ -128,7 +128,7 @@ class NavDrawer extends StatelessWidget {
                       fontSize: 16, // Ajusta el tamaño del texto si es necesario
                     ),
                   ),
-                  leading: Icon(Icons.library_books),
+                  leading: Icon(Icons.library_books, color: Colors.black),
                   onTap: () {
                     Navigator.of(context).pop();
                     Navigator.of(context).push(MaterialPageRoute(
@@ -136,7 +136,7 @@ class NavDrawer extends StatelessWidget {
                   },
                 ),
                 Divider(
-                  color: Colors.grey,
+                  color: Colors.black,
                 ),
                 ListTile(
                   title: Text(
@@ -146,7 +146,7 @@ class NavDrawer extends StatelessWidget {
                       fontSize: 16, // Ajusta el tamaño del texto si es necesario
                     ),
                   ),
-                  leading: Icon(Icons.contact_page_rounded),
+                  leading: Icon(Icons.contact_page_rounded, color: Colors.black),
                   onTap: () {
                     Navigator.of(context).pop();
                     Navigator.of(context).push(MaterialPageRoute(
@@ -154,7 +154,7 @@ class NavDrawer extends StatelessWidget {
                   },
                 ),
                 Divider(
-                  color: Colors.grey,
+                  color: Colors.black,
                 ),
                 ListTile(
                   title: Text(
@@ -164,7 +164,7 @@ class NavDrawer extends StatelessWidget {
                       fontSize: 16, // Ajusta el tamaño del texto si es necesario
                     ),
                   ),
-                  leading: Icon(Icons.exit_to_app_rounded),
+                  leading: Icon(Icons.exit_to_app_rounded, color: Colors.black),
                   onTap: () {
                     Navigator.of(context).pop();
                     Navigator.of(context).push(MaterialPageRoute(
