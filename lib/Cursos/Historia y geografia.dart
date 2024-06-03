@@ -134,16 +134,17 @@ class _ContentAreaState extends State<ContentArea> {
             style: Theme.of(context).textTheme.headline1,
           ),
           SizedBox(height: 8),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(10),
-            child: Image.network(
-              'https://th.bing.com/th/id/OIP.F1QTBKGrlpEGi4XhKPwfugHaGL?rs=1&pid=ImgDetMain',
-              width: double.infinity,
-              height: 200,
-              fit: BoxFit.cover,
-            ),
+        ClipRRect(
+          borderRadius: BorderRadius.circular(10),
+          child: Image.asset(
+            'assets/histo.jpg',
+            width: double.infinity,
+            height: 200,
+            fit: BoxFit.cover,
           ),
-          SizedBox(height: 16),
+        ),
+
+        SizedBox(height: 16),
           Text(
             'Descripción',
             style: Theme.of(context).textTheme.headline2,

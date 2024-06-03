@@ -78,29 +78,127 @@ class _MyHomePageState extends State<MyHomePage> {
                 width: 320,
                 height: 320,
                 color: Colors.white,
-                child: Image.asset('assets/doramayer.jpg'),
+                child: Image.asset('assets/dora.jpg'),
               ),
               SizedBox(height: 20),
               Text(
-                'Dora Mayer',
+                '----------------------------------',
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Text(
-                'Dora Mayer fue una educadora apasionada y visionaria que dedicó su vida al servicio de la educación y el desarrollo de la juventud. Con una visión centrada en la excelencia académica y la formación integral de sus estudiantes, Dora Mayer fundó la Institución Educativa Dora Mayer con el objetivo de brindar una educación de calidad que inspire, motive y empodere a las generaciones futuras. '
-                    'Nuestra institución, inspirada en los valores de integridad, excelencia y servicio, se esfuerza por proporcionar un ambiente de aprendizaje enriquecedor y estimulante donde cada estudiante pueda alcanzar su máximo potencial. '
-                    'Con un enfoque en el desarrollo personal, académico y social, Dora Mayer ofrece una amplia gama de oportunidades educativas y extracurriculares que fomentan el crecimiento holístico de nuestros alumnos. '
-                    'En Dora Mayer, nos comprometemos a cultivar líderes del mañana, ciudadanos responsables y agentes de cambio positivo en sus comunidades. '
-                    'Con un equipo de educadores dedicados y un entorno de aprendizaje innovador, estamos preparando a nuestros estudiantes para enfrentar los desafíos del mundo moderno y hacer una diferencia significativa en el mundo que los rodea. '
-                    'Únete a nosotros en nuestra misión de inspirar el aprendizaje, fomentar la excelencia y empoderar a cada estudiante para alcanzar sus sueños y aspiraciones más altas. '
-                    'Juntos, estamos construyendo un futuro brillante para la próxima generación.',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 16,
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 16),
+                child: Text(
+                  'Biografía de Dora Mayer',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFFA80001),
+                  ),
                 ),
               ),
+
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 16),
+                child: Text(
+                  'Vida Temprana',
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF131313),
+                  ),
+                ),
+              ),
+
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 16),
+                child: Text(
+                  'Dora Mayer nació en Hamburgo, Alemania, el 12 de mayo de 1868. Emigró al Perú con su familia cuando era niña, estableciéndose en el Callao.',
+                  textAlign: TextAlign.justify,
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 16),
+                child: Text(
+                  'Activismo Social',
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                      color: Color(0xFF131313),
+                  ),
+                ),
+              ),
+
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 16),
+                child: Text(
+                  'Mayer fue una destacada educadora, periodista y defensora de los derechos humanos, especialmente de los pueblos indígenas. Trabajó incansablemente por la igualdad y la justicia social.',
+                  textAlign: TextAlign.justify,
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 16),
+                child: Text(
+                  'Contribuciones a la Educación',
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                      color: Color(0xFF131313),
+                  ),
+                ),
+              ),
+
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 16),
+                child: Text(
+                  'Dora Mayer hizo importantes contribuciones al campo de la educación en el Perú, promoviendo una educación inclusiva y de calidad para todos los sectores de la sociedad.',
+                  textAlign: TextAlign.justify,
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 16),
+                child: Text(
+                  'Legado y Reconocimientos',
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF131313),
+                  ),
+                ),
+              ),
+
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 16),
+                child: Text(
+                  'El Colegio Dora Mayer, ubicado en Bellavista, Callao, lleva su nombre en honor a su legado. Su influencia en la promoción de los derechos humanos y la educación perdura hasta el día de hoy.',
+                  textAlign: TextAlign.justify,
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+
+
+
               // Agrega más información sobre Dora Mayer u otras cosas relevantes aquí
             ],
           ),
