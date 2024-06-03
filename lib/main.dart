@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         iconTheme: IconThemeData(color: Colors.white),
       ),
-      home: SplashScreen(), // Cambia el home a LoginPage
+      home: SplashScreen(), // Cambia el home a LoginPagee
     );
   }
 }
