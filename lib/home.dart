@@ -55,6 +55,16 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
           backgroundColor: Color(0xFF580001), // Cambia el color de la barra de notificaciones
+          leading: Builder(
+            builder: (BuildContext context) {
+              return IconButton(
+                icon: Icon(Icons.menu, color: Colors.white), // Cambia el color del ícono aquí a blanco
+                onPressed: () {
+                  Scaffold.of(context).openDrawer();
+                },
+              );
+            },
+          ),
           actions: [
             IconButton(
               icon: Icon(Icons.notifications),
