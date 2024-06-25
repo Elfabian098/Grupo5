@@ -216,15 +216,26 @@ class ListarUsuariosPage extends StatelessWidget {
               return Center(child: Text('Error al cargar datos'));
             } else {
               List<dynamic> users = snapshot.data ?? [];
-              return ListView.builder(
-                itemCount: users.length,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    title: Text(users[index][0] ?? ''),
-                    subtitle: Text(users[index][1] ?? ''),
-                    // Añade más detalles según necesites
-                  );
-                },
+              return SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: DataTable(
+                  columns: [
+                    DataColumn(label: Text('Nombre')),
+                    DataColumn(label: Text('Apellido')),
+                    DataColumn(label: Text('Correo')),
+                    DataColumn(label: Text('Password')),
+                    DataColumn(label: Text('Rol')),
+                  ],
+                  rows: users
+                      .map((user) => DataRow(cells: [
+                    DataCell(Text(user[0] ?? '')),
+                    DataCell(Text(user[1] ?? '')),
+                    DataCell(Text(user[2] ?? '')),
+                    DataCell(Text(user[3] ?? '')),
+                    DataCell(Text(user[4] ?? '')),
+                  ]))
+                      .toList(),
+                ),
               );
             }
           }
