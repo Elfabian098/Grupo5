@@ -268,6 +268,10 @@ class _LoginPageState extends State<LoginPage> {
 
                                 if (email.isNotEmpty && password.isNotEmpty) {
                                   // Buscar usuario y clave
+
+
+
+                                  // CONECTAR AL PHP
                                   if (buscarUsuario(email, password)) {
                                     // Guardar el nombre del usuario o el correo
                                     await _guardarDato1(email);

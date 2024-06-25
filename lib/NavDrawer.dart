@@ -5,6 +5,8 @@ import 'Perfil.dart';
 import 'Contacto.dart';
 import 'main.dart';
 import 'ListaCursos.dart';
+import 'GraficamenteMantenimientoUsuario.dart';
+
 
 class NavDrawer extends StatelessWidget {
   Future<String> _cargarPreferencia() async {
@@ -158,6 +160,24 @@ class NavDrawer extends StatelessWidget {
                 ),
                 ListTile(
                   title: Text(
+                    "CRUD-Usuarios",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold, // Hace el texto más grueso
+                      fontSize: 16, // Ajusta el tamaño del texto si es necesario
+                    ),
+                  ),
+                  leading: Icon(Icons.build_circle, color: Colors.black),
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (BuildContext context) => MantenimientoUsu()));
+                  },
+                ),
+                Divider(
+                  color: Colors.black,
+                ),
+                ListTile(
+                  title: Text(
                     "Salir",
                     style: TextStyle(
                       fontWeight: FontWeight.bold, // Hace el texto más grueso
@@ -171,6 +191,7 @@ class NavDrawer extends StatelessWidget {
                         builder: (BuildContext context) => LoginPage()));
                   },
                 ),
+
               ],
             );
           }
