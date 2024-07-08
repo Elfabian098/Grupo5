@@ -6,6 +6,15 @@ import 'package:guia5/Preguntas/PreguntasHyG/Sesion2HyG.dart';
 import 'package:guia5/Preguntas/PreguntasHyG/Sesion3HyG.dart';
 import 'package:guia5/Preguntas/PreguntasHyG/Sesion4HyG.dart';
 import 'package:guia5/Preguntas/PreguntasHyG/Sesion5HyG.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+void _launchURL(String url) async {
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
 
 void main() => runApp(His_Geo());
 
@@ -59,6 +68,8 @@ class MyHomePage extends StatelessWidget {
   }
 }
 
+
+
 class ContentArea extends StatefulWidget {
   @override
   _ContentAreaState createState() => _ContentAreaState();
@@ -90,6 +101,7 @@ class _ContentAreaState extends State<ContentArea> {
       'date': 'Introducción al curso',
       'isCompleted': false,
       'tareasPage': Sesion1HyG(),
+
     },
     {
       'title': 'Sesión 02',
@@ -125,7 +137,7 @@ class _ContentAreaState extends State<ContentArea> {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(16),
-      color: Colors.white, // Color de fondo agregado
+      color: Colors.white,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -134,17 +146,16 @@ class _ContentAreaState extends State<ContentArea> {
             style: Theme.of(context).textTheme.headline1,
           ),
           SizedBox(height: 8),
-        ClipRRect(
-          borderRadius: BorderRadius.circular(10),
-          child: Image.asset(
-            'assets/histo.jpg',
-            width: double.infinity,
-            height: 200,
-            fit: BoxFit.cover,
+          ClipRRect(
+            borderRadius: BorderRadius.circular(10),
+            child: Image.asset(
+              'assets/histo.jpg',
+              width: double.infinity,
+              height: 200,
+              fit: BoxFit.cover,
+            ),
           ),
-        ),
-
-        SizedBox(height: 16),
+          SizedBox(height: 16),
           Text(
             'Descripción',
             style: Theme.of(context).textTheme.headline2,
@@ -195,12 +206,31 @@ class _ContentAreaState extends State<ContentArea> {
               } else {
                 return Column(
                   children: _sessions.map((session) {
-                    return ListContainer(
-                      title: session['title'],
-                      description: session['description'],
-                      date: session['date'],
-                      isCompleted: session['isCompleted'],
-                      tareasPage: session['tareasPage'],
+                    return Column(
+                      children: [
+                        ListContainer(
+                          title: session['title'],
+                          description: session['description'],
+                          date: session['date'],
+                          isCompleted: session['isCompleted'],
+                          tareasPage: session['tareasPage'],
+                        ),
+                        if (session['title'] == 'Sesión 01')
+                          ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all<Color>(Color(
+                                  0xFF00B9A3)), // Color de fondo del botón
+                            ),
+                            onPressed: () {
+                              _launchURL('http://localhost:3000/public/document/26/HistoriadelPerú.pdf');
+                            },
+                            child: Text(
+                              'PPT Sesión 1 Historia',
+                              style: TextStyle(color: Colors.white), // Color del texto blanco
+                            ),
+                          ),
+                        SizedBox(height: 8),
+                      ],
                     );
                   }).toList(),
                 );

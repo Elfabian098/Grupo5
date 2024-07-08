@@ -7,7 +7,7 @@ import 'main.dart';
 import 'ListaCursos.dart';
 import 'GraficamenteMantenimientoUsuario.dart';
 import 'ListaTickets.dart';
-
+import 'DescargarDocumento.dart';
 class NavDrawer extends StatelessWidget {
   Future<String> _cargarPreferencia() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -189,6 +189,24 @@ class NavDrawer extends StatelessWidget {
                     Navigator.of(context).pop();
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (BuildContext context) => ListaTickets()));
+                  },
+                ),
+                Divider(
+                  color: Colors.black,
+                ),
+                ListTile(
+                  title: Text(
+                    "Documentos",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold, // Hace el texto más grueso
+                      fontSize: 16, // Ajusta el tamaño del texto si es necesario
+                    ),
+                  ),
+                  leading: Icon(Icons.build_circle, color: Colors.black),
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (BuildContext context) => DescargarDocumentos()));
                   },
                 ),
                 Divider(
