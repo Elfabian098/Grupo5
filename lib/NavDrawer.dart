@@ -6,7 +6,7 @@ import 'Contacto.dart';
 import 'main.dart';
 import 'ListaCursos.dart';
 import 'GraficamenteMantenimientoUsuario.dart';
-
+import 'ListaTickets.dart';
 
 class NavDrawer extends StatelessWidget {
   Future<String> _cargarPreferencia() async {
@@ -171,6 +171,24 @@ class NavDrawer extends StatelessWidget {
                     Navigator.of(context).pop();
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (BuildContext context) => MantenimientoUsu()));
+                  },
+                ),
+                Divider(
+                  color: Colors.black,
+                ),
+                ListTile(
+                  title: Text(
+                    "Tickets",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold, // Hace el texto más grueso
+                      fontSize: 16, // Ajusta el tamaño del texto si es necesario
+                    ),
+                  ),
+                  leading: Icon(Icons.build_circle, color: Colors.black),
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (BuildContext context) => ListaTickets()));
                   },
                 ),
                 Divider(
