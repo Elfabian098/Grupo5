@@ -6,6 +6,17 @@ import 'package:guia5/Preguntas/PreguntasEPT/Sesion2EPT.dart';
 import 'package:guia5/Preguntas/PreguntasEPT/Sesion3EPT.dart';
 import 'package:guia5/Preguntas/PreguntasEPT/Sesion4EPT.dart';
 import 'package:guia5/Preguntas/PreguntasEPT/Sesion5EPT.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+
+void _launchURL(String url) async {
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
 void main() => runApp(EPT());
 
 class EPT extends StatelessWidget {
@@ -194,12 +205,46 @@ class _ContentAreaState extends State<ContentArea> {
               } else {
                 return Column(
                   children: _sessions.map((session) {
-                    return ListContainer(
-                      title: session['title'],
-                      description: session['description'],
-                      date: session['date'],
-                      isCompleted: session['isCompleted'],
-                      tareasPage: session['tareasPage'],
+                    return Column(
+                      children: [
+                        ListContainer(
+                          title: session['title'],
+                          description: session['description'],
+                          date: session['date'],
+                          isCompleted: session['isCompleted'],
+                          tareasPage: session['tareasPage'],
+                        ),
+                        if (session['title'] == 'Sesión 01')
+                          ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all<Color>(Color(
+                                  0xFF00B9A3)), // Color de fondo del botón
+                            ),
+                            onPressed: () {
+                              _launchURL('http://localhost:3000/public/document/26/HistoriadelPerú.pdf');
+                            },
+                            child: Text(
+                              'PPT Sesión 1 EPT',
+                              style: TextStyle(color: Colors.white), // Color del texto blanco
+                            ),
+                          ),
+                        SizedBox(height: 8),
+                        if (session['title'] == 'Sesión 02')
+                          ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all<Color>(Color(
+                                  0xFF00B9A3)), // Color de fondo del botón
+                            ),
+                            onPressed: () {
+                              _launchURL('http://localhost:3000/public/document/27/Informe%20Acad%C3%A9mico%20G3%20APP.pdf');
+                            },
+                            child: Text(
+                              'PPT Sesión 2 EPT',
+                              style: TextStyle(color: Colors.white), // Color del texto blanco
+                            ),
+                          ),
+                        SizedBox(height: 20),
+                      ],
                     );
                   }).toList(),
                 );

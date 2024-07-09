@@ -230,6 +230,21 @@ class _ContentAreaState extends State<ContentArea> {
                             ),
                           ),
                         SizedBox(height: 8),
+                        if (session['title'] == 'Sesión 02')
+                          ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all<Color>(Color(
+                                  0xFF00B9A3)), // Color de fondo del botón
+                            ),
+                            onPressed: () {
+                              _launchURL('http://localhost:3000/public/document/27/Informe%20Acad%C3%A9mico%20G3%20APP.pdf');
+                            },
+                            child: Text(
+                              'PPT Sesión 2 Historia',
+                              style: TextStyle(color: Colors.white), // Color del texto blanco
+                            ),
+                          ),
+                        SizedBox(height: 20),
                       ],
                     );
                   }).toList(),

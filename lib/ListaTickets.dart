@@ -10,7 +10,7 @@ class ListaTickets extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Gestión de Usuarios'),
+        title: Text('Gestión de Tickets'),
       ),
       drawer: NavDrawer(),
       body: Center(
@@ -66,7 +66,7 @@ class ListarTicketsPage extends StatelessWidget {
 Widget build(BuildContext context) {
   return Scaffold(
     appBar: AppBar(
-      title: Text('Listar Usuarios'),
+      title: Text('Listar Tickets'),
     ),
     drawer: NavDrawer(),
     body: FutureBuilder<List<dynamic>>(
