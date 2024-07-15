@@ -5,7 +5,7 @@ import 'Perfil.dart';
 import 'Contacto.dart';
 import 'main.dart';
 import 'ListaCursos.dart';
-import 'GraficamenteMantenimientoUsuario.dart';
+import 'API/GraficamenteMantenimientoUsuario.dart';
 import 'ListaTickets.dart';
 
 class NavDrawer extends StatelessWidget {
